@@ -11,41 +11,49 @@ import java.util.ArrayList;
  *
  * @author Muumilaakso
  */
-public class Storage {
+public class Storage implements StorageIO {
 
-    ArrayList<Viite> viitteet;
+    ArrayList<Reference> viitteet;
 
     public Storage() {
-        viitteet = new ArrayList<Viite>();
+        viitteet = new ArrayList<Reference>();
     }
 
     /**
      * Viitteen lisäys tietorakenteeseen
-     * 
-     * @param viite Lisättävä viite
+     *
+     * @param ref Lisättävä ref
      */
-    public void lisaaViite(Viite viite) {
-        if (!viitteet.contains(viite)) {
-            viitteet.add(viite);
+    @Override
+    public void addRef(Reference ref) {
+        if (!viitteet.contains(ref)) {
+            viitteet.add(ref);
         } else {
-            System.out.println("On jo");
+            System.out.println("Viite on jo olemassa");
         }
     }
 
     /**
      * Viitteen poisto tietorakenteesta
-     * 
+     *
      * @param viite Poistettava viite
      */
-    public void poistaViite(Viite viite) {
+    @Override
+    public void remRef(Reference viite) {
         if (viitteet.contains(viite)) {
             viitteet.remove(viite);
         } else {
-            System.out.println("Ei ollut!");
+            System.out.println("Kyseistä viitettä ei ollut");
         }
     }
 
-    public ArrayList<Viite> getViitteet() {
+    /**
+     * Palauttaa viitetietorakenteen
+     *
+     * @return viittet
+     */
+    @Override
+    public ArrayList<Reference> getViitteet() {
         return viitteet;
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Viite-tiedot.
+ * Reference-tiedot.
  * 
  * Luokka hallitsee viitteeseen liittyviä tietoja.
  */
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Muumilaakso
  */
-public class Viite {
+public class Reference {
 
     String type;
     ArrayList<String> author;
@@ -30,14 +30,14 @@ public class Viite {
      * @param title teoksen nimi
      * @param year tekovuosi
      * @param booktitle
-     * @param publisher
-     * @param pages julkaisija
-     * @param address
+     * @param publisher julkaisija
+     * @param pages sivumäärä
+     * @param address osoite
      */
-    public Viite(String type, ArrayList<String> author, String title, int year,
+    public Reference(String type, ArrayList<String> author, String title, int year,
             String booktitle, String publisher, String pages, String address) {
         this.type = type;
-        this.author = author;           // Kandeeko antaa lista, jos vaan yksi author?
+        this.author = author;
         this.title = title;
         this.year = year;
         this.booktitle = booktitle;
