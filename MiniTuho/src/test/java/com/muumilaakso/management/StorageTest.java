@@ -20,7 +20,7 @@ public class StorageTest extends TestCase {
     protected void setUp() throws Exception {
 
         String type = "type";
-        ArrayList author = new ArrayList();
+        ArrayList<String> author = new ArrayList<String>();
         author.add("author1");
         author.add("author2");
         String title = "title";

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Viite {
 
     String type;
-    ArrayList author;
+    ArrayList<String> author;
     String title;
     int year;
     String booktitle;
@@ -34,7 +34,7 @@ public class Viite {
      * @param pages julkaisija
      * @param address
      */
-    public Viite(String type, ArrayList author, String title, int year,
+    public Viite(String type, ArrayList<String> author, String title, int year,
             String booktitle, String publisher, String pages, String address) {
         this.type = type;
         this.author = author;           // Kandeeko antaa lista, jos vaan yksi author?
@@ -53,7 +53,7 @@ public class Viite {
         return address;
     }
 
-    public ArrayList getAuthor() {
+    public ArrayList<String> getAuthor() {
         return author;
     }
 
@@ -88,7 +88,7 @@ public class Viite {
         this.address = address;
     }
 
-    public void setAuthor(ArrayList author) {
+    public void setAuthor(ArrayList<String> author) {
         this.author = author;
     }
 
