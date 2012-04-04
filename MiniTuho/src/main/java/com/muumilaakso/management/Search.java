@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Search {
 
     ArrayList<Reference> refs;
+    ArrayList<Reference> matchinRefs;
 
     public Search(ArrayList<Reference> refs) {
         this.refs = refs;
@@ -23,21 +24,24 @@ public class Search {
      * Tyyppi.
      *
      * @param type Tyyppi
+     * @return matchinRefs Hakua vastaavat viitteet.
      */
-    public void listMatchingType(String type) {
+    public ArrayList<Reference> listMatchingType(String type) {
         for (Reference reference : refs) {
             if (reference.getType().contains(type)) {
                 listRefs(reference);
             }
         }
+        return matchinRefs;
     }
 
     /**
      * Tekijä.
      *
      * @param author Tekijä
+     * @return matchinRefs Hakua vastaavat viitteet.
      */
-    public void listMatchingAuthor(String author) {
+    public ArrayList<Reference> listMatchingAuthor(String author) {
         for (Reference reference : refs) {
             for (String auth : reference.getAuthor()) {
                 if (auth.contains(author)) {
@@ -46,58 +50,67 @@ public class Search {
                 }
             }
         }
+        return matchinRefs;
     }
 
     /**
      * Vuosi.
      *
      * @param year Vuosi
+     * @return matchinRefs Hakua vastaavat viitteet.
      */
-    public void listYear(int year) {
+    public ArrayList<Reference> listYear(int year) {
         for (Reference reference : refs) {
             if (reference.getYear() == year) {
                 listRefs(reference);
             }
         }
+        return matchinRefs;
     }
 
     /**
      * Booktitle.
      *
      * @param booktitle Booktitle
+     * @return matchinRefs Hakua vastaavat viitteet.
      */
-    public void listMatchingBooktitle(String booktitle) {
+    public ArrayList<Reference> listMatchingBooktitle(String booktitle) {
         for (Reference reference : refs) {
             if (reference.getBooktitle().contains(booktitle)) {
                 listRefs(reference);
             }
         }
+        return matchinRefs;
     }
 
     /**
      * Julkaisija.
      *
      * @param publisher Julkaisija
+     * @return matchinRefs Hakua vastaavat viitteet.
      */
-    public void listPublisher(String publisher) {
+    public ArrayList<Reference> listPublisher(String publisher) {
         for (Reference reference : refs) {
             if (reference.getPublisher().contains(publisher)) {
                 listRefs(reference);
             }
         }
+        return matchinRefs;
     }
 
     /**
      * Osoite.
      *
      * @param address Osoite
+     * @return matchinRefs Hakua vastaavat viitteet.
      */
-    public void listMatchingAddress(String address) {
+    public ArrayList<Reference> listMatchingAddress(String address) {
         for (Reference reference : refs) {
             if (reference.getAddress().contains(address)) {
                 listRefs(reference);
             }
         }
+        return matchinRefs;
     }
 
     /**
@@ -116,7 +129,7 @@ public class Search {
      *
      * @param reference Viite
      */
-    public void listRefs(Reference reference) {
+    private void listRefs(Reference reference) {
 
         // Tyyppi
         String type = reference.getType();
@@ -168,5 +181,13 @@ public class Search {
         if (!address.isEmpty()) {
             System.out.println("Address: " + address);
         }
+        addMatchinRef(reference);
+    }
+
+    private void addMatchinRef(Reference ref) {
+        if (matchinRefs == null) {
+            matchinRefs = new ArrayList<Reference>();
+        }
+        matchinRefs.add(ref);
     }
 }
