@@ -45,7 +45,7 @@ public class Storage {
         }
     }
 
-    public ArrayList<Viite> getViitteet() {
+    public ArrayList getViitteet() {
         return viitteet;
     }
 }
