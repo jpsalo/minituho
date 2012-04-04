@@ -1,7 +1,7 @@
 package com.muumilaakso.minituho;
 
 /**
- * Hello world!
+ * Hello Muumiworld!
  *
  */
 public class App 
