@@ -1,5 +1,7 @@
 /*
- * Viitteet sisältävä tietorakenne
+ * Viitteet sisältävä tietorakenne.
+ * 
+ * Lisäys, poisto, haku, listaus.
  */
 package com.muumilaakso.management;
 
@@ -41,5 +43,9 @@ public class Storage {
         } else {
             System.out.println("Ei ollut!");
         }
+    }
+
+    public ArrayList<Viite> getViitteet() {
+        return viitteet;
     }
 }
