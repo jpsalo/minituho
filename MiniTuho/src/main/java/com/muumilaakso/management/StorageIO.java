@@ -13,5 +13,5 @@ import java.util.ArrayList;
 public interface StorageIO {
     public void addRef(Reference ref);
     public void remRef(Reference ref);
-    public ArrayList<Reference> getViitteet();
+    public ArrayList<Reference> getRefs();
 }
