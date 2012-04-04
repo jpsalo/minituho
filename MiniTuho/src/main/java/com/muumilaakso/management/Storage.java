@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 public class Storage {
 
-    ArrayList<Viite> viitteet;
+    ArrayList viitteet;
 
     public Storage() {
-        viitteet = new ArrayList<Viite>();
+        viitteet = new ArrayList();
     }
 
     /**
