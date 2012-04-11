@@ -30,12 +30,7 @@ public class StorageTest extends TestCase {
         String pages = "pages";
         String address = "address";
 
-<<<<<<< HEAD
-        this.testRef = new Reference(type, author, title, year, publisher,
-                booktitle, pages, address);
-=======
         this.testRef = new Reference(type, author, title, year, publisher, booktitle, pages, address);
->>>>>>> origin/db
 
         this.testStorage = new Storage();
     }
@@ -45,12 +40,8 @@ public class StorageTest extends TestCase {
      */
     public void testAddRef() {
         testStorage.addRef(testRef);
-
-<<<<<<< HEAD
-        assertTrue(testStorage.getViitteet().contains(testRef));
-=======
+        
         assertTrue(testStorage.getRefs().contains(testRef));
->>>>>>> origin/db
     }
 
     /**
@@ -58,11 +49,7 @@ public class StorageTest extends TestCase {
      */
     public void testRemRef() {
         testStorage.remRef(testRef);
-
-<<<<<<< HEAD
-        assertTrue(!testStorage.getViitteet().contains(testRef));
-=======
+        
         assertTrue(!testStorage.getRefs().contains(testRef));
->>>>>>> origin/db
     }
 }
