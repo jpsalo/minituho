@@ -21,10 +21,64 @@ public class Search {
     }
 
     /**
-     * Tyyppi.
+     * Haku.
+     * 
+     * Hakutermillä haetaan viitteen kaikista attribuuteista ja osumat lisätään
+     * listaan ja tulostetaan.
      *
-     * @param type Tyyppi
+     * @param haet Hakutermi
      * @return matchinRefs Hakua vastaavat viitteet.
+     */
+    public ArrayList<Reference> listMatching(String haet) {
+        
+        matchinRefs.clear();
+
+//        luupataan KAIKKI viitteet läpi
+        for (Reference reference : refs) {
+            
+//            tyyppi
+            if (reference.getType().contains(haet)) {
+                listRefs(reference);
+            }
+            
+//            kirjan otsikko
+            else if (reference.getBooktitle().contains(haet)) {
+                listRefs(reference);
+            }
+            
+//            vuosi
+            else if (reference.getYear() == Integer.parseInt(haet)) {
+                listRefs(reference);
+            }
+            
+//            julkaisija
+            else if (reference.getPublisher().contains(haet)) {
+                listRefs(reference);
+            }
+            
+//            osoite
+            else if (reference.getAddress().contains(haet)) {
+                listRefs(reference);
+            }
+            
+//            tekijät
+            else {
+                for (String auth : reference.getAuthor()) {
+                    if (auth.contains(haet)) {
+                        listRefs(reference);
+                        break;
+                    }
+                }
+            }
+        }
+        return matchinRefs;
+    }
+    
+    /**
+     * Tyyppi.
+     * 
+     * @param type  Tyyppi
+     * @return  matchinRefs Hakua vastaavat viitteet.
      */
     public ArrayList<Reference> listMatchingType(String type) {
         for (Reference reference : refs) {

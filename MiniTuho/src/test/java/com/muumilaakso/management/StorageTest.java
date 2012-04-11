@@ -9,8 +9,8 @@ import junit.framework.TestCase;
  */
 public class StorageTest extends TestCase {
 
-    Reference testiViite;
-    Storage testiStorage;
+    Reference testRef;
+    Storage testStorage;
 
     public StorageTest(String testName) {
         super(testName);
@@ -30,26 +30,27 @@ public class StorageTest extends TestCase {
         String pages = "pages";
         String address = "address";
 
-        this.testiViite = new Reference(type, author, title, year, publisher, booktitle, pages, address);
+        this.testRef = new Reference(type, author, title, year, publisher,
+                booktitle, pages, address);
 
-        this.testiStorage = new Storage();
+        this.testStorage = new Storage();
     }
 
     /**
      * Test of addRef method, of class Storage.
      */
-    public void testLisaaViite() {
-        testiStorage.addRef(testiViite);
+    public void testAddRef() {
+        testStorage.addRef(testRef);
 
-        assertTrue(testiStorage.getViitteet().contains(testiViite));
+        assertTrue(testStorage.getViitteet().contains(testRef));
     }
 
     /**
      * Test of remRef method, of class Storage.
      */
-    public void testPoistaViite() {
-        testiStorage.remRef(testiViite);
+    public void testRemRef() {
+        testStorage.remRef(testRef);
 
-        assertTrue(!testiStorage.getViitteet().contains(testiViite));
+        assertTrue(!testStorage.getViitteet().contains(testRef));
     }
 }

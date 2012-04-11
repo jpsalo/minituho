@@ -20,7 +20,7 @@ public class Storage implements StorageIO {
     }
 
     /**
-     * Viitteen lisäys tietorakenteeseen
+     * Viitteen lisäys tietorakenteeseen.
      *
      * @param ref Lisättävä ref
      */
@@ -34,7 +34,7 @@ public class Storage implements StorageIO {
     }
 
     /**
-     * Viitteen poisto tietorakenteesta
+     * Viitteen poisto tietorakenteesta.
      *
      * @param viite Poistettava viite
      */
@@ -48,7 +48,7 @@ public class Storage implements StorageIO {
     }
 
     /**
-     * Palauttaa viitetietorakenteen
+     * Palauttaa viitetietorakenteen.
      *
      * @return viittet
      */
