@@ -13,21 +13,21 @@ import java.util.ArrayList;
  */
 public class Storage implements StorageIO {
 
-    ArrayList<Reference> viitteet;
+    ArrayList<Reference> refs;
 
     public Storage() {
-        viitteet = new ArrayList<Reference>();
+        refs = new ArrayList<Reference>();
     }
 
     /**
      * Viitteen lisäys tietorakenteeseen.
      *
-     * @param ref Lisättävä ref
+     * @param ref Lisättävä viite
      */
     @Override
     public void addRef(Reference ref) {
-        if (!viitteet.contains(ref)) {
-            viitteet.add(ref);
+        if (!refs.contains(ref)) {
+            refs.add(ref);
         } else {
             System.out.println("Viite on jo olemassa");
         }
@@ -36,12 +36,12 @@ public class Storage implements StorageIO {
     /**
      * Viitteen poisto tietorakenteesta.
      *
-     * @param viite Poistettava viite
+     * @param ref Poistettava viite
      */
     @Override
-    public void remRef(Reference viite) {
-        if (viitteet.contains(viite)) {
-            viitteet.remove(viite);
+    public void remRef(Reference ref) {
+        if (refs.contains(ref)) {
+            refs.remove(ref);
         } else {
             System.out.println("Kyseistä viitettä ei ollut");
         }
@@ -53,7 +53,7 @@ public class Storage implements StorageIO {
      * @return viittet
      */
     @Override
-    public ArrayList<Reference> getViitteet() {
-        return viitteet;
+    public ArrayList<Reference> getRefs() {
+        return refs;
     }
 }
