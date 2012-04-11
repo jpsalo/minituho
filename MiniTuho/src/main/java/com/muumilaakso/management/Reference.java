@@ -115,4 +115,59 @@ public class Reference {
     public void setYear(int year) {
         this.year = year;
     }
+
+    /**
+     * Viitteen tietojen tulostus.
+     *
+     * @return viite
+     */
+    @Override
+    public String toString() {
+        String viite = "";
+
+        // Tyyppi
+        if (!type.isEmpty()) {
+            viite += "Type" + type + "\n";
+        }
+
+        // Tekijä
+        if (!author.isEmpty()) {
+            System.out.print("Author: ");
+            for (String auth : author) {
+                viite += auth + ", " + "\n";
+            }
+        }
+
+        // Teoksen nimi
+        if (!title.isEmpty()) {
+            viite += "Title: " + title + "\n";
+        }
+
+        // Tekovuosi
+        if (year != 0) {
+            viite += "Year: " + year + "\n";
+        }
+
+        // Booktitle
+        if (!booktitle.isEmpty()) {
+            viite += "Book title: " + booktitle + "\n";
+        }
+
+        // Julkaisija
+        if (!publisher.isEmpty()) {
+            viite += "Publisher: " + publisher + "\n";
+        }
+
+        // Sivumäärä
+        if (!pages.isEmpty()) {
+            viite += "Pages: " + pages + "\n";
+        }
+
+        // Osoite
+        if (!address.isEmpty()) {
+            viite += "Address: " + address + "\n";
+        }
+
+        return viite;
+    }
 }
