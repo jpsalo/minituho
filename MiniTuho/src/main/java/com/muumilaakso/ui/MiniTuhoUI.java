@@ -5,7 +5,11 @@
 package com.muumilaakso.ui;
 
 import com.muumilaakso.management.Reference;
+import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.UIManager;
 
 /**
  *
@@ -15,11 +19,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
     Reference ref;
     ArrayList<String> auth;
+    DefaultListModel dlm;
 
     /**
      * Creates new form MiniTuhoUI
      */
     public MiniTuhoUI() {
+        dlm = new DefaultListModel();
         initComponents();
         auth = new ArrayList<String>();
     }
@@ -34,7 +40,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private void initComponents() {
 
         closeBtn = new javax.swing.JButton();
-        editTab = new javax.swing.JTabbedPane();
+        refTab = new javax.swing.JTabbedPane();
         addPnl = new javax.swing.JPanel();
         refType = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -54,7 +60,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         refAddress = new javax.swing.JTextField();
         addAuthBtn = new javax.swing.JButton();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        editPnl = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        refList = new javax.swing.JList(dlm);
+        remRefBtn = new javax.swing.JButton();
+        editRefBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("teX");
@@ -170,17 +180,17 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addGap(46, 46, 46)
                 .addGroup(addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(refType)
+                    .addComponent(refAddress)
+                    .addComponent(refPages)
+                    .addComponent(refPublisher)
+                    .addComponent(refBooktitle)
+                    .addComponent(refYear)
+                    .addComponent(refTitle)
                     .addGroup(addPnlLayout.createSequentialGroup()
                         .addComponent(refAuthor)
                         .addGap(63, 63, 63)
                         .addComponent(addAuthBtn))
-                    .addComponent(refTitle)
-                    .addComponent(refYear)
-                    .addComponent(refBooktitle)
-                    .addComponent(refPublisher)
-                    .addComponent(refPages)
-                    .addComponent(refAddress))
+                    .addComponent(refType))
                 .addContainerGap())
             .addGroup(addPnlLayout.createSequentialGroup()
                 .addGap(367, 367, 367)
@@ -190,7 +200,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         addPnlLayout.setVerticalGroup(
             addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addPnlLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(refType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -223,13 +233,58 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addGroup(addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(refAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(addBtn)
                 .addContainerGap())
         );
 
-        editTab.addTab("Lisää", addPnl);
-        editTab.addTab("Muokkaa", jTabbedPane2);
+        refTab.addTab("Lisää", addPnl);
+
+        refList.setModel(dlm);
+        refList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                refListValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(refList);
+
+        remRefBtn.setText("Poista");
+        remRefBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                remRefBtnActionPerformed(evt);
+            }
+        });
+
+        editRefBtn.setText("Muokkaa");
+
+        javax.swing.GroupLayout editPnlLayout = new javax.swing.GroupLayout(editPnl);
+        editPnl.setLayout(editPnlLayout);
+        editPnlLayout.setHorizontalGroup(
+            editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(editPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+                    .addGroup(editPnlLayout.createSequentialGroup()
+                        .addComponent(remRefBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editRefBtn)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        editPnlLayout.setVerticalGroup(
+            editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, editPnlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(remRefBtn)
+                    .addComponent(editRefBtn))
+                .addContainerGap())
+        );
+
+        refTab.addTab("Muokkaa", editPnl);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,12 +294,12 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(closeBtn)
                 .addContainerGap())
-            .addComponent(editTab)
+            .addComponent(refTab)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(editTab)
+                .addComponent(refTab)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(closeBtn)
                 .addContainerGap())
@@ -264,7 +319,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         String pages = refPages.getText();
         String address = refAddress.getText();
 
-        ref = new Reference(type, null, title, year, booktitle, publisher, pages, address);
+        ref = new Reference(type, auth, title, year, booktitle, publisher, pages, address);
+
+        dlm.addElement(ref);
+
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
@@ -315,6 +373,18 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_refAuthorInputMethodTextChanged
 
+    private void refListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_refListValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_refListValueChanged
+
+    private void remRefBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remRefBtnActionPerformed
+        // TODO add your handling code here:
+
+        ref = (Reference) dlm.get(refList.getSelectedIndex());
+
+        dlm.remove(refList.getSelectedIndex());
+    }//GEN-LAST:event_remRefBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -328,21 +398,26 @@ public class MiniTuhoUI extends javax.swing.JFrame {
          * default look and feel. For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MiniTuhoUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            System.out.println("Error setting native LAF: " + e);
         }
         //</editor-fold>
 
@@ -361,7 +436,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JButton addBtn;
     private javax.swing.JPanel addPnl;
     private javax.swing.JButton closeBtn;
-    private javax.swing.JTabbedPane editTab;
+    private javax.swing.JPanel editPnl;
+    private javax.swing.JButton editRefBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -370,14 +446,17 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField refAddress;
     private javax.swing.JTextField refAuthor;
     private javax.swing.JTextField refBooktitle;
+    private javax.swing.JList refList;
     private javax.swing.JTextField refPages;
     private javax.swing.JTextField refPublisher;
+    private javax.swing.JTabbedPane refTab;
     private javax.swing.JTextField refTitle;
     private javax.swing.JTextField refType;
     private javax.swing.JTextField refYear;
+    private javax.swing.JButton remRefBtn;
     // End of variables declaration//GEN-END:variables
 }
