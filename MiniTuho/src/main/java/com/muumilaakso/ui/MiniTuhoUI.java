@@ -20,7 +20,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
  * @author jusalo
  */
 public class MiniTuhoUI extends javax.swing.JFrame {
-    
+
     Reference ref;
     ArrayList<String> auth, editor;
     HashMap<Integer, ArrayList<String>> authors, editors;
@@ -36,6 +36,70 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         dlm = new DefaultListModel();
         storage = new Storage();
         initComponents();
+        hideComponents();
+    }
+
+    private void hideComponents() {
+        addressLbl.setVisible(false);
+        addressTxt.setVisible(false);
+        annoteLbl.setVisible(false);
+        annoteTxt.setVisible(false);
+        authorLbl.setVisible(false);
+        authorTxt1.setVisible(false);
+        authorTxt2.setVisible(false);
+        authorTxt3.setVisible(false);
+        addAuthBtn.setVisible(false);
+        booktitleLbl.setVisible(false);
+        booktitleTxt.setVisible(false);
+        chapterLbl.setVisible(false);
+        chapterTxt.setVisible(false);
+        crossrefLbl.setVisible(false);
+        crossrefTxt.setVisible(false);
+        editionLbl.setVisible(false);
+        editionTxt.setVisible(false);
+        eprintLbl.setVisible(false);
+        editorLbl.setVisible(false);
+        editorTxt1.setVisible(false);
+        editorTxt2.setVisible(false);
+        editorTxt2.setVisible(false);
+        editorTxt3.setVisible(false);
+        addEditBtn.setVisible(false);
+        eprintLbl.setVisible(false);
+        eprintTxt.setVisible(false);
+        howpublishedLbl.setVisible(false);
+        howpublishedTxt.setVisible(false);
+        institutionLbl.setVisible(false);
+        institutionTxt.setVisible(false);
+        journalLbl.setVisible(false);
+        journalTxt.setVisible(false);
+        keyLbl.setVisible(false);
+        keyTxt.setVisible(false);
+        monthLbl.setVisible(false);
+        monthTxt.setVisible(false);
+        noteLbl.setVisible(false);
+        noteTxt.setVisible(false);
+        numberLbl.setVisible(false);
+        numberTxt.setVisible(false);
+        organizationLbl.setVisible(false);
+        organizationTxt.setVisible(false);
+        pagesLbl.setVisible(false);
+        pagesTxt.setVisible(false);
+        publisherLbl.setVisible(false);
+        publisherTxt.setVisible(false);
+        schoolLbl.setVisible(false);
+        schoolTxt.setVisible(false);
+        seriesLbl.setVisible(false);
+        seriesTxt.setVisible(false);
+        titleLbl.setVisible(false);
+        titleTxt.setVisible(false);
+        typeLbl.setVisible(false);
+        typeTxt.setVisible(false);
+        urlLbl.setVisible(false);
+        urlTxt.setVisible(false);
+        volumeLbl.setVisible(false);
+        volumeTxt.setVisible(false);
+        yearLbl.setVisible(false);
+        yearTxt.setVisible(false);
     }
 
     /**
@@ -138,6 +202,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         entryLbl.setText("Entry");
 
         entryCBx.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "article", "book", "booklet", "conference", "inbook", "incollection", "inproceedings", "manual", "mastersthesis", "misc", "phdthesis", "proceedings", "techreport", "unpublished" }));
+        entryCBx.setSelectedIndex(-1);
         entryCBx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 entryCBxActionPerformed(evt);
@@ -420,7 +485,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                 .addComponent(addAuthBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(annoteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(urlLbl))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTxt, annoteTxt, booktitleTxt, chapterTxt, crossrefTxt, editionTxt, entryCBx, eprintTxt, howpublishedTxt, institutionTxt, journalTxt, keyTxt, monthTxt, noteTxt, numberTxt, organizationTxt, pagesTxt, publisherTxt, schoolTxt, seriesTxt, titleTxt, typeTxt, urlTxt, volumeTxt, yearTxt});
@@ -553,7 +618,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         addPnl.setLayout(addPnlLayout);
         addPnlLayout.setHorizontalGroup(
             addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
         );
         addPnlLayout.setVerticalGroup(
             addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -601,7 +666,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             .addGroup(editPnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
                     .addGroup(editPnlLayout.createSequentialGroup()
                         .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(editPnlLayout.createSequentialGroup()
@@ -645,7 +710,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addComponent(closeBtn)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addComponent(refTab, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(refTab, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -697,14 +762,61 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
+        getEditor();
+
+        editorCounter++;
     }//GEN-LAST:event_addEditBtnActionPerformed
 
     private void addAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuthBtnActionPerformed
         // TODO add your handling code here:
+        getAuthor();
+
+        authCounter++;
     }//GEN-LAST:event_addAuthBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
+        ref = new Reference();
+
+        ref.setAddress(addressTxt.getText());
+        ref.setAnnote(annoteTxt.getText());
+//        author
+
+        getAuthor();
+        ref.setAuthor(authors);
+
+        ref.setBooktitle(booktitleTxt.getText());
+        ref.setChapter(chapterTxt.getText());
+        ref.setCrossref(crossrefTxt.getText());
+        ref.setEdition(editionTxt.getText());
+//        editor
+
+        getEditor();
+        ref.setEditor(editors);
+
+        ref.setEntrytype(entryCBx.getSelectedItem().toString());
+        ref.setEprint(eprintTxt.getText());
+        ref.setHowpublished(howpublishedTxt.getText());
+        ref.setInstitution(institutionTxt.getText());
+        ref.setJournal(journalTxt.getText());
+        ref.setKey(keyTxt.getText());
+        ref.setMonth(monthTxt.getText());
+        ref.setNumber(numberTxt.getText());
+        ref.setOrganization(organizationTxt.getText());
+        ref.setPages(pagesTxt.getText());
+        ref.setPublisher(publisherTxt.getText());
+        ref.setSchool(schoolTxt.getText());
+        ref.setSeries(seriesTxt.getText());
+        ref.setTitle(titleTxt.getText());
+        ref.setType(typeTxt.getText());
+        ref.setUrl(urlTxt.getText());
+        ref.setVolume(volumeTxt.getText());
+        ref.setYear(yearTxt.getText());
+
+        authCounter = 0;
+        editorCounter = 0;
+
+        dlm.addElement(ref);
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void publisherTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publisherTxtActionPerformed
@@ -785,20 +897,251 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
     private void entryCBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entryCBxActionPerformed
         // TODO add your handling code here:
+        hideComponents();
+
+        switch (entryCBx.getSelectedIndex()) {
+            case 0:
+//            article
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                journalLbl.setVisible(true);
+                journalTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+                
+//                optional
+                volumeLbl.setVisible(true);
+                volumeTxt.setVisible(true);
+                
+                numberLbl.setVisible(true);
+                numberTxt.setVisible(true);
+                
+                pagesLbl.setVisible(true);
+                pagesTxt.setVisible(true);
+                
+                monthLbl.setVisible(true);
+                monthTxt.setVisible(true);
+                
+                noteLbl.setVisible(true);
+                noteTxt.setVisible(true);
+                
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
+            case 1:
+//                book
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                editorLbl.setVisible(true);
+                editorTxt1.setVisible(true);
+                editorTxt2.setVisible(true);
+                editorTxt3.setVisible(true);
+                addEditBtn.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                publisherLbl.setVisible(true);
+                publisherTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+                
+//                optional
+            case 2:
+//                booklet
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+//                optional
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+            case 3:
+//                conference
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                booktitleLbl.setVisible(true);
+                booktitleTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+                
+//                optional
+            case 4:
+//                inbook
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                editorLbl.setVisible(true);
+                editorTxt1.setVisible(true);
+                editorTxt2.setVisible(true);
+                editorTxt3.setVisible(true);
+                addEditBtn.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                chapterLbl.setVisible(true);
+                chapterTxt.setVisible(true);
+                
+                pagesLbl.setVisible(true);
+                pagesTxt.setVisible(true);
+                
+                publisherLbl.setVisible(true);
+                publisherTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+//                optional
+            case 5:
+//                incollection
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                booktitleLbl.setVisible(true);
+                booktitleTxt.setVisible(true);
+                
+                publisherLbl.setVisible(true);
+                publisherTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+//                optional
+            case 6:
+//                inproceedings
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                booktitleLbl.setVisible(true);
+                booktitleTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+                
+//                optional
+            case 7:
+//                manual
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+//                optional
+            case 8:
+//                mastersthesis
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                schoolLbl.setVisible(true);
+                schoolTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+//                optional
+            case 9:
+//                misc
+//                optional
+            case 10:
+//                phdthesis
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                schoolLbl.setVisible(true);
+                schoolTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+//                optional
+            case 11:
+//                proceedings
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+//                optional
+            case 12:
+//                techreport
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                institutionLbl.setVisible(true);
+                institutionTxt.setVisible(true);
+                
+                yearLbl.setVisible(true);
+                yearTxt.setVisible(true);
+//                optional
+            case 13:
+//                unpublished
+                authorLbl.setVisible(true);
+                authorTxt1.setVisible(true);
+                authorTxt2.setVisible(true);
+                authorTxt3.setVisible(true);
+                
+                titleLbl.setVisible(true);
+                titleTxt.setVisible(true);
+                
+                noteLbl.setVisible(true);
+                noteTxt.setVisible(true);
+//                optional
+        }
+
     }//GEN-LAST:event_entryCBxActionPerformed
-                                                                        
+
     private void getAuthor() {
         if (authors == null) {
             authors = new HashMap<Integer, ArrayList<String>>();
         }
-        
+
         auth = new ArrayList<String>();
         boolean hasAuthor = false;
-        
+
         String authorFirst = authorTxt1.getText();
         String authorLast = authorTxt3.getText();
         String authorPrefix = authorTxt2.getText();
-        
+
         if (!authorFirst.isEmpty()) {
             auth.add(authorFirst);
             authorTxt1.setText("");
@@ -818,19 +1161,19 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             authors.put(authCounter, auth);
         }
     }
-                                        
+
     private void getEditor() {
         if (editors == null) {
             editors = new HashMap<Integer, ArrayList<String>>();
         }
-        
+
         editor = new ArrayList<String>();
         boolean hasEditor = false;
-        
+
         String editorFirst = editorTxt2.getText();
         String editorLast = editorTxt3.getText();
         String editorPrefix = editorTxt1.getText();
-        
+
         if (!editorFirst.isEmpty()) {
             editor.add(editorFirst);
             editorTxt2.setText("");
@@ -850,7 +1193,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             editors.put(editorCounter, editor);
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -891,7 +1234,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            
+
             public void run() {
                 new MiniTuhoUI().setVisible(true);
             }

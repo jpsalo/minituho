@@ -39,7 +39,7 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <Component id="refTab" min="-2" pref="530" max="-2" attributes="0"/>
+              <Component id="refTab" min="-2" pref="370" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -80,7 +80,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane4" alignment="0" pref="518" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" pref="358" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -181,7 +181,7 @@
                                   </Group>
                                   <Component id="urlLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="188" max="32767" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -362,6 +362,7 @@
                             <StringItem index="13" value="unpublished"/>
                           </StringArray>
                         </Property>
+                        <Property name="selectedIndex" type="int" value="-1"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entryCBxActionPerformed"/>
@@ -675,7 +676,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="506" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="346" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
