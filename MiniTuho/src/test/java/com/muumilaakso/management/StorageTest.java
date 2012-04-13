@@ -30,7 +30,7 @@ public class StorageTest extends TestCase {
         String pages = "pages";
         String address = "address";
 
-        this.testRef = new Reference(type, author, title, year, publisher, booktitle, pages, address);
+//        this.testRef = new Reference(type, author, title, year, publisher, booktitle, pages, address);
 
         this.testStorage = new Storage();
     }

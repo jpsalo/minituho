@@ -35,24 +35,24 @@ public class Search {
 //        luupataan viitteet läpi
         for (Reference reference : refs) {
 
-            if (reference.getType().contains(haet)) {                   // tyyppi
-                addMatchinRef(reference);
-            } else if (reference.getBooktitle().contains(haet)) {       // otsikko
-                addMatchinRef(reference);
-            } else if (reference.getYear() == Integer.parseInt(haet)) { // vuosi
-                addMatchinRef(reference);
-            } else if (reference.getPublisher().contains(haet)) {       // julkaisija
-                addMatchinRef(reference);
-            } else if (reference.getAddress().contains(haet)) {         // osoite
-                addMatchinRef(reference);
-            } else {
-                for (String auth : reference.getAuthor()) {             // tekijät
-                    if (auth.contains(haet)) {
-                        addMatchinRef(reference);
-                        break;
-                    }
-                }
-            }
+//            if (reference.getType().contains(haet)) {                   // tyyppi
+//                addMatchinRef(reference);
+//            } else if (reference.getBooktitle().contains(haet)) {       // otsikko
+//                addMatchinRef(reference);
+//            } else if (reference.getYear() == Integer.parseInt(haet)) { // vuosi
+//                addMatchinRef(reference);
+//            } else if (reference.getPublisher().contains(haet)) {       // julkaisija
+//                addMatchinRef(reference);
+//            } else if (reference.getAddress().contains(haet)) {         // osoite
+//                addMatchinRef(reference);
+//            } else {
+//                for (String auth : reference.getAuthor()) {             // tekijät
+//                    if (auth.contains(haet)) {
+//                        addMatchinRef(reference);
+//                        break;
+//                    }
+//                }
+//            }
         }
         return matchinRefs;
     }
