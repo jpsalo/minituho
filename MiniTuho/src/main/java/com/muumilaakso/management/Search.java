@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * @author Muumilaakso
  */
 public class Search {
-
+    
     ArrayList<Reference> refs, matchinRefs;
-
+    
     public Search(ArrayList<Reference> refs) {
         this.refs = refs;
     }
@@ -29,30 +29,18 @@ public class Search {
      * @return matchinRefs Hakua vastaavat viitteet.
      */
     public ArrayList<Reference> listMatching(String haet) {
-
+        
         matchinRefs.clear();
 
 //        luupataan viitteet läpi
         for (Reference reference : refs) {
-
-            if (reference.getType().contains(haet)) {                   // tyyppi
-                addMatchinRef(reference);
-            } else if (reference.getBooktitle().contains(haet)) {       // otsikko
-                addMatchinRef(reference);
-            } else if (reference.getYear() == Integer.parseInt(haet)) { // vuosi
-                addMatchinRef(reference);
-            } else if (reference.getPublisher().contains(haet)) {       // julkaisija
-                addMatchinRef(reference);
-            } else if (reference.getAddress().contains(haet)) {         // osoite
-                addMatchinRef(reference);
-            } else {
-                for (String auth : reference.getAuthor()) {             // tekijät
-                    if (auth.contains(haet)) {
-                        addMatchinRef(reference);
-                        break;
-                    }
+            
+            for (String attribute : reference.getAttr().values()) {
+                if (attribute.contains(haet)) {
+                    addMatchinRef(reference);
                 }
             }
+            
         }
         return matchinRefs;
     }

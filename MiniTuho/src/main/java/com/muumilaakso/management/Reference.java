@@ -17,9 +17,8 @@ import java.util.Map;
  * @author Muumilaakso
  */
 public class Reference {
-    
-    HashMap attr;
- 
+
+    HashMap<String, String> attr;
     String address;
     String annote;
     String author;
@@ -27,7 +26,7 @@ public class Reference {
     String chapter;
     String crossref;
     String edition;
-    String editor; 
+    String editor;
     String eprint;
     String howpublished;
     String institution;
@@ -48,13 +47,11 @@ public class Reference {
     String year;
     String entrytype;
 
-
-  /**
-   * Konstruktori
-   */  
-
+    /**
+     * Konstruktori
+     */
     public Reference() {
-        attr = new HashMap();
+        attr = new HashMap<String, String>();
     }
 
     // Getterit
@@ -165,8 +162,8 @@ public class Reference {
     public String getYear() {
         return year;
     }
-    
-    public HashMap getAttr() {
+
+    public HashMap<String, String> getAttr() {
         return attr;
     }
 
@@ -181,22 +178,20 @@ public class Reference {
         attr.put("annote", this.annote);
     }
 
-    public void setAuthor(HashMap<Integer,ArrayList<String>> authors) {
+    public void setAuthor(HashMap<Integer, ArrayList<String>> authors) {
         String nimet = "";
-        
+
         if (authors.size() == 1) {
             if (authors.get(0).size() > 2) {
-                nimet+= nimet+authors.get(0).get(1)+", "+authors.get(0).get(2)+", "+authors.get(0).get(0);
-            }
-            else {
-                nimet += nimet+authors.get(0).get(1)+", "+authors.get(0).get(0);
+                nimet += nimet + authors.get(0).get(1) + ", " + authors.get(0).get(2) + ", " + authors.get(0).get(0);
+            } else {
+                nimet += nimet + authors.get(0).get(1) + ", " + authors.get(0).get(0);
             }
             this.author = nimet;
-        }
-        else if (authors.size() > 1) {
+        } else if (authors.size() > 1) {
             for (int i = 0; i < authors.size(); i++) {
-                nimet += nimet+authors.get(0).get(0)+" "+authors.get(0).get(1)+" "+authors.get(0).get(2); 
-                if (i != authors.size()-1) {
+                nimet += nimet + authors.get(0).get(0) + " " + authors.get(0).get(1) + " " + authors.get(0).get(2);
+                if (i != authors.size() - 1) {
                     nimet += "and ";
                 }
             }
@@ -227,20 +222,18 @@ public class Reference {
 
     public void setEditor(HashMap<Integer, ArrayList<String>> editors) {
         String edit = "";
-        
+
         if (editors.size() == 1) {
             if (editors.get(0).size() > 2) {
-                edit += edit+editors.get(0).get(1)+", "+editors.get(0).get(2)+", "+editors.get(0).get(0);
-            }
-            else {
-                edit += edit+editors.get(0).get(1)+", "+editors.get(0).get(0);
+                edit += edit + editors.get(0).get(1) + ", " + editors.get(0).get(2) + ", " + editors.get(0).get(0);
+            } else {
+                edit += edit + editors.get(0).get(1) + ", " + editors.get(0).get(0);
             }
             this.author = edit;
-        }
-        else if (editors.size() > 1) {
+        } else if (editors.size() > 1) {
             for (int i = 0; i < editors.size(); i++) {
-                edit += edit+editors.get(0).get(0)+" "+editors.get(0).get(1)+" "+editors.get(0).get(2); 
-                if (i != editors.size()-1) {
+                edit += edit + editors.get(0).get(0) + " " + editors.get(0).get(1) + " " + editors.get(0).get(2);
+                if (i != editors.size() - 1) {
                     edit += "and ";
                 }
             }
@@ -341,14 +334,14 @@ public class Reference {
         this.year = year;
         attr.put("year", this.year);
     }
-    
+
     public static void main(String[] args) throws IOException {
         Reference uusi = new Reference();
 
         uusi.author = "puu, pekka";
         uusi.journal = "PUU";
-        
-        
+
+
         ArrayList<Reference> r = new ArrayList<Reference>();
         r.add(uusi);
         BibTex b = new BibTex(r);
