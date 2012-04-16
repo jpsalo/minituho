@@ -6,6 +6,7 @@ package com.muumilaakso.ui;
 
 import com.muumilaakso.management.Reference;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -255,6 +256,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
+
+        ref = new Reference();
+        
         String type = refType.getText();
         auth.add(refAuthor.getText());
         String title = refTitle.getText();
@@ -263,8 +267,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         String publisher = refPublisher.getText();
         String pages = refPages.getText();
         String address = refAddress.getText();
-
-        ref = new Reference(type, null, title, year, booktitle, publisher, pages, address);
+        
+        
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed

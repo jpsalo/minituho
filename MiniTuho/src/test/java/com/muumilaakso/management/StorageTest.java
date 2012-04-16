@@ -19,6 +19,8 @@ public class StorageTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
 
+        this.testRef = new Reference();
+        
         String type = "type";
         ArrayList<String> author = new ArrayList<String>();
         author.add("author1");
@@ -29,8 +31,6 @@ public class StorageTest extends TestCase {
         String publisher = "publisher";
         String pages = "pages";
         String address = "address";
-
-        this.testRef = new Reference(type, author, title, year, publisher, booktitle, pages, address);
 
         this.testStorage = new Storage();
     }
