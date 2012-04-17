@@ -1011,12 +1011,14 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                     keyLbl.setVisible(true);
                     keyTxt.setVisible(true);
                 }
+                break;
             case 1:
 //                book
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 editorLbl.setVisible(true);
                 editorTxt1.setVisible(true);
@@ -1034,22 +1036,71 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearTxt.setVisible(true);
 
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    volumeLbl.setVisible(true);
+                    volumeTxt.setVisible(true);
+
+                    numberLbl.setVisible(true);
+                    numberTxt.setVisible(true);
+
+                    seriesLbl.setVisible(true);
+                    seriesTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    editionLbl.setVisible(true);
+                    editionTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 2:
 //                booklet
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
 
 //                optional
-                authorLbl.setVisible(true);
-                authorTxt1.setVisible(true);
-                authorTxt2.setVisible(true);
-                authorTxt3.setVisible(true);
+                if (optionalChckBx.isSelected()) {
+                    authorLbl.setVisible(true);
+                    authorTxt1.setVisible(true);
+                    authorTxt2.setVisible(true);
+                    authorTxt3.setVisible(true);
+                    addAuthBtn.setVisible(true);
+
+                    howpublishedLbl.setVisible(true);
+                    howpublishedTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    yearLbl.setVisible(true);
+                    yearTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 3:
 //                conference
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
@@ -1061,12 +1112,51 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearTxt.setVisible(true);
 
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    editorLbl.setVisible(true);
+                    editorTxt1.setVisible(true);
+                    editorTxt2.setVisible(true);
+                    editorTxt3.setVisible(true);
+                    addEditBtn.setVisible(true);
+
+                    volumeLbl.setVisible(true);
+                    volumeTxt.setVisible(true);
+
+                    numberLbl.setVisible(true);
+                    numberTxt.setVisible(true);
+
+                    seriesLbl.setVisible(true);
+                    seriesTxt.setVisible(true);
+
+                    pagesLbl.setVisible(true);
+                    pagesTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    organizationLbl.setVisible(true);
+                    organizationTxt.setVisible(true);
+
+                    publisherLbl.setVisible(true);
+                    publisherTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 4:
 //                inbook
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 editorLbl.setVisible(true);
                 editorTxt1.setVisible(true);
@@ -1089,12 +1179,42 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    volumeLbl.setVisible(true);
+                    volumeTxt.setVisible(true);
+
+                    numberLbl.setVisible(true);
+                    numberTxt.setVisible(true);
+
+                    seriesLbl.setVisible(true);
+                    seriesTxt.setVisible(true);
+
+                    typeLbl.setVisible(true);
+                    typeTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    editionLbl.setVisible(true);
+                    editionTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 5:
 //                incollection
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
@@ -1108,12 +1228,54 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    editorLbl.setVisible(true);
+                    editorTxt1.setVisible(true);
+                    editorTxt2.setVisible(true);
+                    editorTxt3.setVisible(true);
+                    addEditBtn.setVisible(true);
+
+                    volumeLbl.setVisible(true);
+                    volumeTxt.setVisible(true);
+
+                    numberLbl.setVisible(true);
+                    numberTxt.setVisible(true);
+
+                    seriesLbl.setVisible(true);
+                    seriesTxt.setVisible(true);
+
+                    typeLbl.setVisible(true);
+                    typeTxt.setVisible(true);
+
+                    chapterLbl.setVisible(true);
+                    chapterTxt.setVisible(true);
+
+                    pagesLbl.setVisible(true);
+                    pagesTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    editionLbl.setVisible(true);
+                    editionTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 6:
 //                inproceedings
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
@@ -1125,17 +1287,85 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearTxt.setVisible(true);
 
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    editorLbl.setVisible(true);
+                    editorTxt1.setVisible(true);
+                    editorTxt2.setVisible(true);
+                    editorTxt3.setVisible(true);
+                    addEditBtn.setVisible(true);
+
+                    volumeLbl.setVisible(true);
+                    volumeTxt.setVisible(true);
+
+                    numberLbl.setVisible(true);
+                    numberTxt.setVisible(true);
+
+                    seriesLbl.setVisible(true);
+                    seriesTxt.setVisible(true);
+
+                    pagesLbl.setVisible(true);
+                    pagesTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    organizationLbl.setVisible(true);
+                    organizationTxt.setVisible(true);
+
+                    publisherLbl.setVisible(true);
+                    publisherTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 7:
 //                manual
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    authorLbl.setVisible(true);
+                    authorTxt1.setVisible(true);
+                    authorTxt2.setVisible(true);
+                    authorTxt3.setVisible(true);
+                    addAuthBtn.setVisible(true);
+
+                    organizationLbl.setVisible(true);
+                    organizationTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    editionLbl.setVisible(true);
+                    editionTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    yearLbl.setVisible(true);
+                    yearTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 8:
 //                mastersthesis
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
@@ -1146,15 +1376,59 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    typeLbl.setVisible(true);
+                    typeTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 9:
 //                misc
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    authorLbl.setVisible(true);
+                    authorTxt1.setVisible(true);
+                    authorTxt2.setVisible(true);
+                    authorTxt3.setVisible(true);
+                    addAuthBtn.setVisible(true);
+
+                    titleLbl.setVisible(true);
+                    titleTxt.setVisible(true);
+
+                    howpublishedLbl.setVisible(true);
+                    howpublishedTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    yearLbl.setVisible(true);
+                    yearTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 10:
 //                phdthesis
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
@@ -1165,6 +1439,23 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    typeLbl.setVisible(true);
+                    typeTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 11:
 //                proceedings
                 titleLbl.setVisible(true);
@@ -1173,12 +1464,48 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    editorLbl.setVisible(true);
+                    editorTxt1.setVisible(true);
+                    editorTxt2.setVisible(true);
+                    editorTxt3.setVisible(true);
+                    addEditBtn.setVisible(true);
+
+                    volumeLbl.setVisible(true);
+                    volumeTxt.setVisible(true);
+
+                    numberLbl.setVisible(true);
+                    numberTxt.setVisible(true);
+
+                    seriesLbl.setVisible(true);
+                    seriesTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    publisherLbl.setVisible(true);
+                    publisherTxt.setVisible(true);
+
+                    organizationLbl.setVisible(true);
+                    organizationTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 12:
 //                techreport
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
@@ -1189,12 +1516,33 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    typeLbl.setVisible(true);
+                    typeTxt.setVisible(true);
+
+                    numberLbl.setVisible(true);
+                    numberTxt.setVisible(true);
+
+                    addressLbl.setVisible(true);
+                    addressTxt.setVisible(true);
+
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    noteLbl.setVisible(true);
+                    noteTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
             case 13:
 //                unpublished
                 authorLbl.setVisible(true);
                 authorTxt1.setVisible(true);
                 authorTxt2.setVisible(true);
                 authorTxt3.setVisible(true);
+                addAuthBtn.setVisible(true);
 
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
@@ -1202,6 +1550,17 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 noteLbl.setVisible(true);
                 noteTxt.setVisible(true);
 //                optional
+                if (optionalChckBx.isSelected()) {
+                    monthLbl.setVisible(true);
+                    monthTxt.setVisible(true);
+
+                    yearLbl.setVisible(true);
+                    yearTxt.setVisible(true);
+
+                    keyLbl.setVisible(true);
+                    keyTxt.setVisible(true);
+                }
+                break;
         }
 
     }//GEN-LAST:event_entryCBxActionPerformed
