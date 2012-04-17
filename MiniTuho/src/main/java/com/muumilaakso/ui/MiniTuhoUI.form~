@@ -179,6 +179,7 @@
                                           <Component id="annoteTxt" linkSize="5" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+<<<<<<< HEAD
                                   <Component id="seriesTxt" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="urlTxt" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="typeTxt" linkSize="3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -198,11 +199,14 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="addEditBtn" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="183" max="32767" attributes="0"/>
+=======
                                   <Component id="urlLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+>>>>>>> gui
                               </Group>
                               <EmptySpace pref="28" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="addBtn" min="-2" max="-2" attributes="0"/>

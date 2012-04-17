@@ -219,8 +219,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         addBtn = new javax.swing.JButton();
         addAuthBtn = new javax.swing.JButton();
         addEditBtn = new javax.swing.JButton();
+<<<<<<< HEAD
         optionalChckBx = new javax.swing.JCheckBox();
+=======
         urlLbl = new javax.swing.JLabel();
+>>>>>>> gui
         editPnl = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         refList = new javax.swing.JList(dlm);
