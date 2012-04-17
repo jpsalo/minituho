@@ -108,6 +108,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         editorTxt2 = new javax.swing.JTextField();
         editorTxt3 = new javax.swing.JTextField();
         addEditBtn = new javax.swing.JButton();
+        optionalChckBx = new javax.swing.JCheckBox();
         editPnl = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         refList = new javax.swing.JList(dlm);
@@ -203,10 +204,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
         annoteTxt.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 annoteTxtInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -339,6 +340,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
 
+        optionalChckBx.setText("Lisäkentät");
+        optionalChckBx.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optionalChckBxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -418,11 +426,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                         .addComponent(editorTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addEditBtn)
-                        .addContainerGap(189, Short.MAX_VALUE))))
+                        .addContainerGap(183, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(addBtn)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(optionalChckBx)
+                .addContainerGap())
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTxt, annoteTxt, booktitleTxt, chapterTxt, crossrefTxt, editionTxt, entryCBx, eprintTxt, howpublishedTxt, institutionTxt, journalTxt, keyTxt, monthTxt, noteTxt, numberTxt, organizationTxt, pagesTxt, publisherTxt, schoolTxt, seriesTxt, titleTxt, typeTxt, urlTxt, volumeTxt, yearTxt});
@@ -547,7 +557,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                     .addComponent(yearTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addBtn)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBtn)
+                    .addComponent(optionalChckBx))
                 .addContainerGap())
         );
 
@@ -594,7 +606,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             .addGroup(editPnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                     .addGroup(editPnlLayout.createSequentialGroup()
                         .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(editPnlLayout.createSequentialGroup()
@@ -619,7 +631,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                     .addComponent(searchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remRefBtn)
@@ -782,17 +794,17 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         String authorLast = authorTxt2.getText();
         String authorPrefix = authorTxt3.getText();
 
-        if (!authorFirst.isEmpty()) {
+        if (authorFirst != null && !authorFirst.isEmpty()) {
             auth.add(authorFirst);
             authorTxt1.setText("");
             hasAuthor = true;
         }
-        if (!authorLast.isEmpty()) {
+        if (authorLast != null && !authorLast.isEmpty()) {
             auth.add(authorLast);
             authorTxt2.setText("");
             hasAuthor = true;
         }
-        if (!authorPrefix.isEmpty()) {
+        if (authorPrefix != null && !authorPrefix.isEmpty()) {
             auth.add(authorPrefix);
             authorTxt3.setText("");
             hasAuthor = true;
@@ -855,17 +867,17 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         String editorLast = editorTxt2.getText();
         String editorPrefix = editorTxt3.getText();
 
-        if (!editorFirst.isEmpty()) {
+        if (editorFirst != null && !editorFirst.isEmpty()) {
             editor.add(editorFirst);
             editorTxt1.setText("");
             hasEditor = true;
         }
-        if (!editorLast.isEmpty()) {
+        if (editorLast != null && !editorLast.isEmpty()) {
             editor.add(editorLast);
             editorTxt2.setText("");
             hasEditor = true;
         }
-        if (!editorPrefix.isEmpty()) {
+        if (editorPrefix != null && !editorPrefix.isEmpty()) {
             editor.add(editorPrefix);
             editorTxt3.setText("");
             hasEditor = true;
@@ -878,6 +890,15 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void optionalChckBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionalChckBxActionPerformed
+        // TODO add your handling code here:
+        if (optionalChckBx.isSelected()) {
+            
+        } else {
+            
+        }
+    }//GEN-LAST:event_optionalChckBxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -976,6 +997,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JTextField noteTxt;
     private javax.swing.JLabel numberLbl;
     private javax.swing.JTextField numberTxt;
+    private javax.swing.JCheckBox optionalChckBx;
     private javax.swing.JLabel organizationLbl;
     private javax.swing.JTextField organizationTxt;
     private javax.swing.JLabel pagesLbl;
