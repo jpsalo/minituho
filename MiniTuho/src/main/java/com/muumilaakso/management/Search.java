@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * @author Muumilaakso
  */
 public class Search {
-    
+
     ArrayList<Reference> refs, matchinRefs;
-    
+
     public Search(ArrayList<Reference> refs) {
         this.refs = refs;
     }
@@ -29,18 +29,20 @@ public class Search {
      * @return matchinRefs Hakua vastaavat viitteet.
      */
     public ArrayList<Reference> listMatching(String haet) {
-        
-        matchinRefs.clear();
+
+//        matchinRefs.clear();
 
 //        luupataan viitteet läpi
         for (Reference reference : refs) {
-            
+
             for (String attribute : reference.getAttr().values()) {
-                if (attribute.contains(haet)) {
-                    addMatchinRef(reference);
+                if (attribute != null && !attribute.isEmpty()) {
+                    if (attribute.contains(haet)) {
+                        addMatchinRef(reference);
+                    }
                 }
             }
-            
+
         }
         return matchinRefs;
     }
