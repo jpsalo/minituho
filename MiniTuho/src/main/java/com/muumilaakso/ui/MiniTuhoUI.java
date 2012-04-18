@@ -13,6 +13,7 @@ import java.util.HashMap;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+
 /**
  *
  * @author jusalo
@@ -789,7 +790,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+                                     
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
         // TODO add your handling code here:
         System.exit(0);

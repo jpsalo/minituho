@@ -7,10 +7,7 @@ package com.muumilaakso.management;
 
 import com.muumilaakso.io.BibTex;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -180,19 +177,31 @@ public class Reference {
 
     public void setAuthor(HashMap<Integer, ArrayList<String>> authors) {
         String nimet = "";
+        Set set = authors.entrySet();
+        Iterator iter = set.iterator();
+        Map.Entry me;
+        ArrayList<String> temp;
 
         if (authors.size() == 1) {
-            if (authors.get(0).size() > 2) {
-                nimet += nimet + authors.get(0).get(1) + ", " + authors.get(0).get(2) + ", " + authors.get(0).get(0);
+            me = (Map.Entry) iter.next();
+            temp = (ArrayList) me.getValue();
+            if (temp.size() > 2) {
+                nimet += nimet + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
             } else {
-                nimet += nimet + authors.get(0).get(1) + ", " + authors.get(0).get(0);
+                nimet += nimet + temp.get(1) + ", " + temp.get(0);
             }
             this.author = nimet;
         } else if (authors.size() > 1) {
-            for (int i = 0; i < authors.size(); i++) {
-                nimet += nimet + authors.get(0).get(0) + " " + authors.get(0).get(1) + " " + authors.get(0).get(2);
-                if (i != authors.size() - 1) {
-                    nimet += "and ";
+            while (iter.hasNext()) {
+                me = (Map.Entry) iter.next();
+                temp = (ArrayList) me.getValue();
+                if (temp.size() > 2) {
+                    nimet += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+                } else {
+                    nimet += temp.get(1) + ", " + temp.get(0);
+                }
+                if (iter.hasNext()) {
+                    nimet += " and ";
                 }
             }
             this.author = nimet;
@@ -221,23 +230,35 @@ public class Reference {
     }
 
     public void setEditor(HashMap<Integer, ArrayList<String>> editors) {
-        String edit = "";
+        String editorit = "";
+        Set set = editors.entrySet();
+        Iterator iter = set.iterator();
+        Map.Entry me;
+        ArrayList<String> temp;
 
         if (editors.size() == 1) {
-            if (editors.get(0).size() > 2) {
-                edit += edit + editors.get(0).get(1) + ", " + editors.get(0).get(2) + ", " + editors.get(0).get(0);
+            me = (Map.Entry) iter.next();
+            temp = (ArrayList) me.getValue();
+            if (temp.size() > 2) {
+                editorit += editorit + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
             } else {
-                edit += edit + editors.get(0).get(1) + ", " + editors.get(0).get(0);
+                editorit += editorit + temp.get(1) + ", " + temp.get(0);
             }
-            this.author = edit;
+            this.editor = editorit;
         } else if (editors.size() > 1) {
-            for (int i = 0; i < editors.size(); i++) {
-                edit += edit + editors.get(0).get(0) + " " + editors.get(0).get(1) + " " + editors.get(0).get(2);
-                if (i != editors.size() - 1) {
-                    edit += "and ";
+            while (iter.hasNext()) {
+                me = (Map.Entry) iter.next();
+                temp = (ArrayList) me.getValue();
+                if (temp.size() > 2) {
+                    editorit += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+                } else {
+                    editorit += temp.get(1) + ", " + temp.get(0);
+                }
+                if (iter.hasNext()) {
+                    editorit += "and ";
                 }
             }
-            this.author = edit;
+            this.editor = editorit;
         }
         attr.put("editor", this.editor);
     }
@@ -335,16 +356,60 @@ public class Reference {
         attr.put("year", this.year);
     }
 
-    public static void main(String[] args) throws IOException {
-        Reference uusi = new Reference();
-
-        uusi.author = "puu, pekka";
-        uusi.journal = "PUU";
-
-
-        ArrayList<Reference> r = new ArrayList<Reference>();
-        r.add(uusi);
-        BibTex b = new BibTex(r);
-        b.printBibTex();
-    }
+//    public static void main(String[] args) throws IOException {
+//
+//        Reference ref_1;
+//        Reference ref_2;
+//        HashMap<Integer, ArrayList<String>> map_1;
+//        HashMap<Integer, ArrayList<String>> map_2;
+//        ArrayList list_1;
+//        ArrayList list_2;
+//        ArrayList<Reference> refs;
+//
+//
+//
+//        refs = new ArrayList<Reference>();
+//        //reference 1
+//        ref_1 = new Reference();
+//        map_1 = new HashMap();
+//        list_1 = new ArrayList<String>();
+//
+//        list_1.add("Hannu");
+//        list_1.add("Huttunen");
+//        list_1.add("Jr.");
+//        map_1.put(0, list_1);
+//
+//        ref_1.setEntrytype("article");
+//        ref_1.setKey("artc1");
+//        ref_1.setAuthor(map_1);
+//        ref_1.setPages("200");
+//        ref_1.setYear("2011");
+//        ref_1.setMonth("oct");
+//
+//        //reference 2
+//        ref_2 = new Reference();
+//        map_2 = new HashMap();
+//        list_2 = new ArrayList<String>();
+//        list_2.add("John");
+//        list_2.add("Doe");
+//        list_2.add("Sr.");
+//        map_2.put(0, list_2);
+//        ArrayList<String> list_3 = new ArrayList<String>();
+//        list_3.add("Mary");
+//        list_3.add("Sue");
+//        list_3.add("Ms.");
+//        map_2.put(1, list_3);
+//
+//        ref_2.setEntrytype("article");
+//        ref_2.setKey("artc2");
+//        ref_2.setAuthor(map_2);
+//        ref_2.setPages("600");
+//        ref_2.setYear("2010");
+//
+//        refs.add(ref_1);
+//        refs.add(ref_2);
+//
+//        BibTex bt = new BibTex(refs);
+//        bt.printBibTex();
+//    }
 }

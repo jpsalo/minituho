@@ -43,8 +43,10 @@ public class BibTex {
 
             writer.write("@");
             writer.write(viitteet.get(i).getEntrytype());
+            System.out.println(i + " " + viitteet.get(i).getEntrytype());
             writer.write('{');
             writer.write(viitteet.get(i).getKey());
+            System.out.println(i + " " + viitteet.get(i).getKey());
             writer.write(',');
             writer.write('\n');
 
@@ -52,20 +54,22 @@ public class BibTex {
             Set set = temp.entrySet();
             Iterator iter = set.iterator();
 
-            while(iter.hasNext()) {
-                Map.Entry me = (Map.Entry)iter.next();
-
-                writer.write(me.getValue().toString());
+            while (iter.hasNext()) {
+                Map.Entry me = (Map.Entry) iter.next();
+                writer.write(me.getKey().toString());
+                System.out.println(me.getKey().toString());;
                 writer.write('\t');
                 writer.write("= ");
-                writer.write("{"+me.getValue().toString()+"},");
+                writer.write("{" + me.getValue().toString() + "},");
+                System.out.println("{" + me.getValue().toString() + "},");
                 writer.write('\n');
             }
+
             writer.write('}');
             writer.write('\n');
             writer.write('\n');
         }
-        writer.close();
-
+            writer.close();
+        
     }
 }
