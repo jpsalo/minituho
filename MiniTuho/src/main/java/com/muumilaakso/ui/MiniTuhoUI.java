@@ -233,8 +233,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("teX");
-        setMaximumSize(new java.awt.Dimension(2147483647, 500));
-        setPreferredSize(new java.awt.Dimension(300, 450));
 
         closeBtn.setText("Sulje");
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
