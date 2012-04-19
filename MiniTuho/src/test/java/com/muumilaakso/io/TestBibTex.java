@@ -41,7 +41,7 @@ public class TestBibTex extends TestCase {
         list_1.add("Jr.");
         map_1.put(1, list_1);
         
-        ref_1.setEntrytype("article");
+//        ref_1.setEntrytype("article");
         ref_1.setKey("artc1");
         ref_1.setAuthor(map_1);
         ref_1.setPages("200");

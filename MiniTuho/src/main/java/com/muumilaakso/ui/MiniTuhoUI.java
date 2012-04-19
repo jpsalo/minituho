@@ -10,6 +10,8 @@ import com.muumilaakso.management.Storage;
 import java.awt.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -242,6 +244,12 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         closeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeBtnActionPerformed(evt);
+            }
+        });
+
+        refTab.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                refTabStateChanged(evt);
             }
         });
 
@@ -705,6 +713,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         });
 
         editRefBtn.setText("Muokkaa");
+        editRefBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editRefBtnActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Etsi");
 
@@ -817,10 +830,31 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_searchTxtActionPerformed
 
     private void remRefBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remRefBtnActionPerformed
-        // TODO add your handling code here:
-//        ref = (Reference) dlm.get(refList.getSelectedIndex());
-//        dlm.remove(refList.getSelectedIndex());
+        Reference rem = getSelected();
+
+        if (rem != null) {
+            storage.remRef(rem);
+
+            if (searchTxt.getText() != null && !searchTxt.getText().isEmpty()) {
+                search = new Search(storage.getRefs());
+                populateList(search.listMatching(searchTxt.getText()));
+            } else {
+                populateList(storage.getRefs());
+            }
+        }
     }//GEN-LAST:event_remRefBtnActionPerformed
+
+    private Reference getSelected() {
+        int idx = refList.getSelectedIndex();
+        Reference selected = null;
+
+        if (idx != -1) {
+            String type = (String) dlm.get(idx);
+            search = new Search(storage.getRefs());
+            selected = search.listMatching(type, true).get(0);
+        }
+        return selected;
+    }
 
     private void refListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_refListValueChanged
         // TODO add your handling code here:
@@ -837,9 +871,12 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addAuthBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        // TODO add your handling code here:
-        ref = new Reference();
-
+        if (addBtn.getText().equals("Lisää")) {
+            ref = new Reference();
+            storage.addRef(ref);
+        } else {
+            addBtn.setText("Lisää");
+        }
         ref.setAddress(addressTxt.getText());
         ref.setAnnote(annoteTxt.getText());
 //        author
@@ -856,7 +893,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         getEditor();
         ref.setEditor(editors);
 
-        ref.setEntrytype(entryCBx.getSelectedItem().toString());
+        ref.setEntrytype(entryCBx.getSelectedIndex());
         ref.setEprint(eprintTxt.getText());
         ref.setHowpublished(howpublishedTxt.getText());
         ref.setInstitution(institutionTxt.getText());
@@ -877,8 +914,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         authCounter = 0;
         editorCounter = 0;
-
-        storage.addRef(ref);
 
         clearTxt();
 
@@ -973,6 +1008,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
     private void entryCBxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entryCBxActionPerformed
         // TODO add your handling code here:
+        clearTxt();
         hideComponents();
 
         switch (entryCBx.getSelectedIndex()) {
@@ -1576,6 +1612,91 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         entryCBxActionPerformed(evt);
     }//GEN-LAST:event_optionalChckBxActionPerformed
+
+    private void refTabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_refTabStateChanged
+        // TODO add your handling code here:
+        if (refTab.getSelectedIndex() == 1) {
+            searchBtnActionPerformed(null);
+        }
+    }//GEN-LAST:event_refTabStateChanged
+
+    private void editRefBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editRefBtnActionPerformed
+        this.ref = getSelected();
+
+        if (ref != null) {
+            int type = ref.getEntrytype();
+            entryCBx.setSelectedIndex(type);
+            iterateRef(ref);
+
+            addBtn.setText("Muokkaa");
+            refTab.setSelectedIndex(0);
+
+        }
+    }//GEN-LAST:event_editRefBtnActionPerformed
+
+    private void iterateRef(Reference ref) {
+        HashMap<String, String> attr = ref.getAttr();
+
+        Iterator it = attr.entrySet().iterator();
+
+        while (it.hasNext()) {
+            Map.Entry pairs = (Map.Entry) it.next();
+            String attrKey = pairs.getKey().toString();
+            String attrValue = pairs.getValue().toString();
+
+            if (attrKey.equals("address")) {
+                addressTxt.setText(attrValue);
+            } else if (attrKey.equals("annote")) {
+                annoteTxt.setText(attrValue);
+            } //            author
+            else if (attrKey.equals("booktitle")) {
+                booktitleTxt.setText(attrValue);
+            } else if (attrKey.equals("chapter")) {
+                chapterTxt.setText(attrValue);
+            } else if (attrKey.equals("crossref")) {
+                crossrefTxt.setText(attrValue);
+            } else if (attrKey.equals("edition")) {
+                editionTxt.setText(attrValue);
+            } //            editor
+            else if (attrKey.equals("eprint")) {
+                eprintTxt.setText(attrValue);
+            } else if (attrKey.equals("howpublished")) {
+                howpublishedTxt.setText(attrValue);
+            } else if (attrKey.equals("institution")) {
+                institutionTxt.setText(attrValue);
+            } else if (attrKey.equals("journal")) {
+                journalTxt.setText(attrValue);
+            } else if (attrKey.equals("key")) {
+                keyTxt.setText(attrValue);
+            } else if (attrKey.equals("month")) {
+                monthTxt.setText(attrValue);
+            } else if (attrKey.equals("note")) {
+                noteTxt.setText(attrValue);
+            } else if (attrKey.equals("number")) {
+                numberTxt.setText(attrValue);
+            } else if (attrKey.equals("organization")) {
+                organizationTxt.setText(attrValue);
+            } else if (attrKey.equals("pages")) {
+                pagesTxt.setText(attrValue);
+            } else if (attrKey.equals("publisher")) {
+                publisherTxt.setText(attrValue);
+            } else if (attrKey.equals("school")) {
+                schoolTxt.setText(attrValue);
+            } else if (attrKey.equals("series")) {
+                seriesTxt.setText(attrValue);
+            } else if (attrKey.equals("title")) {
+                titleTxt.setText(attrValue);
+            } else if (attrKey.equals("type")) {
+                typeTxt.setText(attrValue);
+            } else if (attrKey.equals("url")) {
+                urlTxt.setText(attrValue);
+            } else if (attrKey.equals("volume")) {
+                volumeTxt.setText(attrValue);
+            } else if (attrKey.equals("year")) {
+                yearTxt.setText(attrValue);
+            }
+        }
+    }
 
     private void getAuthor() {
         auth = new ArrayList<String>();

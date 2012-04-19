@@ -42,7 +42,7 @@ public class Reference {
     String url;
     String volume;
     String year;
-    String entrytype;
+    int entrytype;
 
     /**
      * Konstruktori
@@ -84,7 +84,7 @@ public class Reference {
         return editor;
     }
 
-    public String getEntrytype() {
+    public int getEntrytype() {
         return entrytype;
     }
 
@@ -289,10 +289,8 @@ public class Reference {
         }
     }
 
-    public void setEntrytype(String entrytype) {
-        if (entrytype != null && !entrytype.isEmpty()) {
-            this.entrytype = entrytype;
-        }
+    public void setEntrytype(int entrytype) {
+        this.entrytype = entrytype;
     }
 
     public void setEprint(String eprint) {

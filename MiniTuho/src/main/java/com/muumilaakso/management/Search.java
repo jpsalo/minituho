@@ -6,6 +6,7 @@
 package com.muumilaakso.management;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Search {
 
     public Search(ArrayList<Reference> refs) {
         this.refs = refs;
+        matchinRefs = new ArrayList<Reference>();
     }
 
     /**
@@ -29,20 +31,29 @@ public class Search {
      * @return matchinRefs Hakua vastaavat viitteet.
      */
     public ArrayList<Reference> listMatching(String haet) {
+        return listMatching(haet, false);
+    }
 
-//        matchinRefs.clear();
-
+    public ArrayList<Reference> listMatching(String haet, boolean searchTitle) {
 //        luupataan viitteet läpi
         for (Reference reference : refs) {
 
             for (String attribute : reference.getAttr().values()) {
                 if (attribute != null && !attribute.isEmpty()) {
                     if (attribute.contains(haet)) {
+
+//                        Pelkkää otsikkoa etsitään viitten poistamiseen.
+                        if (searchTitle) {
+                            if (reference.getTitle().equals(haet)) {
+                                addMatchinRef(reference);
+                                break;
+                            }
+                        }
                         addMatchinRef(reference);
+                        break;
                     }
                 }
             }
-
         }
         return matchinRefs;
     }
@@ -53,9 +64,9 @@ public class Search {
      * @param ref Haettu viite
      */
     private void addMatchinRef(Reference ref) {
-        if (matchinRefs == null) {
-            matchinRefs = new ArrayList<Reference>();
-        }
+//        if (matchinRefs == null) {
+//            matchinRefs = new ArrayList<Reference>();
+//        }
         matchinRefs.add(ref);
     }
 
