@@ -5,9 +5,6 @@
  */
 package com.muumilaakso.management;
 
-import com.muumilaakso.io.BibTex;
-import com.muumilaakso.management.EntryTypeEnums.entryTypes;
-import java.io.IOException;
 import java.util.*;
 
 /**

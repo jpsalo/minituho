@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muumilaakso.io;
 
 import com.muumilaakso.management.Reference;
@@ -12,7 +8,7 @@ import junit.framework.TestCase;
 
 /**
  *
- * @author hannahir
+ * @author Muumilaakso
  */
 public class TestBibTex extends TestCase {
     
@@ -41,7 +37,7 @@ public class TestBibTex extends TestCase {
         list_1.add("Jr.");
         map_1.put(1, list_1);
         
-//        ref_1.setEntrytype("article");
+        ref_1.setEntrytype("article");
         ref_1.setKey("artc1");
         ref_1.setAuthor(map_1);
         ref_1.setPages("200");
@@ -49,22 +45,22 @@ public class TestBibTex extends TestCase {
         ref_1.setMonth("oct");
         
         //reference 2
-//        ref_2 = new Reference();
-//        map_2 = new HashMap();
-//        list_2 = new ArrayList<String>();
-//        list_2.add("John");
-//        list_2.add("Doe");
-//        list_2.add("Sr.");
-//        map_2.put(1, list_2);
-//        
-//        ref_2.setEntrytype("article");
-//        ref_2.setKey("artc1");
-//        ref_2.setAuthor(map_2);
-//        ref_2.setPages("600");
-//        ref_2.setYear("2010");
+        ref_2 = new Reference();
+        map_2 = new HashMap();
+        list_2 = new ArrayList<String>();
+        list_2.add("John");
+        list_2.add("Doe");
+        list_2.add("Sr.");
+        map_2.put(1, list_2);
+        
+        ref_2.setEntrytype("article");
+        ref_2.setKey("artc1");
+        ref_2.setAuthor(map_2);
+        ref_2.setPages("600");
+        ref_2.setYear("2010");
         
         refs.add(ref_1);
-//        refs.add(ref_2);
+        refs.add(ref_2);
     }
     
     @Override

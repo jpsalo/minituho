@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Muumilaakso
  */
-public class Storage implements StorageIO {
+public class Storage {
 
     ArrayList<Reference> refs;
 
@@ -24,7 +24,6 @@ public class Storage implements StorageIO {
      *
      * @param ref Lisättävä viite
      */
-    @Override
     public void addRef(Reference ref) {
         if (!refs.contains(ref)) {
             refs.add(ref);
@@ -38,7 +37,6 @@ public class Storage implements StorageIO {
      *
      * @param ref Poistettava viite
      */
-    @Override
     public void remRef(Reference ref) {
         if (refs.contains(ref)) {
             refs.remove(ref);
@@ -52,7 +50,6 @@ public class Storage implements StorageIO {
      *
      * @return viittet
      */
-    @Override
     public ArrayList<Reference> getRefs() {
         return refs;
     }

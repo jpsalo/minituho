@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muumilaakso.ui;
 
 import com.muumilaakso.io.BibTex;
@@ -10,7 +6,6 @@ import com.muumilaakso.management.EntryTypeEnums.entryTypes;
 import com.muumilaakso.management.Reference;
 import com.muumilaakso.management.Search;
 import com.muumilaakso.management.Storage;
-import java.awt.Component;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,12 +13,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.*;
-import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.DefaultListModel;
+import javax.swing.JComponent;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
 
 /**
  *
- * @author jusalo
+ * @author Muumilaakso
  */
 public class MiniTuhoUI extends javax.swing.JFrame {
 

@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author jusalo
+ * @author Muumilaakso
  */
 public class BibTex {
 

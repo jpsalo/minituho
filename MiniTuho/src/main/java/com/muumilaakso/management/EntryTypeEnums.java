@@ -1,17 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.muumilaakso.management;
 
 /**
  *
- * @author jukapeka
+ * @author Muumilaakso
  */
 public class EntryTypeEnums {
 
     public enum entryTypes {
-
         article,
         book,
         booklet,
