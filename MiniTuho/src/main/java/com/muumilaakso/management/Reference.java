@@ -166,196 +166,259 @@ public class Reference {
 
     //Setterit
     public void setAddress(String address) {
-        this.address = address;
-        attr.put("address", this.address);
+        if (address != null && !address.isEmpty()) {
+            this.address = address;
+            attr.put("address", this.address);
+        }
     }
 
     public void setAnnote(String annote) {
-        this.annote = annote;
-        attr.put("annote", this.annote);
+        if (annote != null && !annote.isEmpty()) {
+            this.annote = annote;
+            attr.put("annote", this.annote);
+        }
     }
 
     public void setAuthor(HashMap<Integer, ArrayList<String>> authors) {
-        String nimet = "";
-        Set set = authors.entrySet();
-        Iterator iter = set.iterator();
-        Map.Entry me;
-        ArrayList<String> temp;
+        if (authors != null && !authors.isEmpty()) {
 
-        if (authors.size() == 1) {
-            me = (Map.Entry) iter.next();
-            temp = (ArrayList) me.getValue();
-            if (temp.size() > 2) {
-                nimet += nimet + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-            } else {
-                nimet += nimet + temp.get(1) + ", " + temp.get(0);
-            }
-            this.author = nimet;
-        } else if (authors.size() > 1) {
-            while (iter.hasNext()) {
-                me = (Map.Entry) iter.next();
-                temp = (ArrayList) me.getValue();
-                if (temp.size() > 2) {
-                    nimet += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-                } else {
-                    nimet += temp.get(1) + ", " + temp.get(0);
+            String nimet = "";
+            Set set = authors.entrySet();
+
+            if (!set.isEmpty()) {
+
+                Iterator iter = set.iterator();
+                Map.Entry me;
+                ArrayList<String> temp;
+
+                if (authors.size() == 1) {
+                    me = (Map.Entry) iter.next();
+                    temp = (ArrayList) me.getValue();
+                    if (temp.size() > 2) {
+                        nimet += nimet + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+                    } else {
+                        nimet += nimet + temp.get(1) + ", " + temp.get(0);
+                    }
+                    this.author = nimet;
+                } else if (authors.size() > 1) {
+                    while (iter.hasNext()) {
+                        me = (Map.Entry) iter.next();
+                        temp = (ArrayList) me.getValue();
+                        if (temp.size() > 2) {
+                            nimet += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+                        } else {
+                            nimet += temp.get(1) + ", " + temp.get(0);
+                        }
+                        if (iter.hasNext()) {
+                            nimet += " and ";
+                        }
+                    }
+                    this.author = nimet;
                 }
-                if (iter.hasNext()) {
-                    nimet += " and ";
-                }
+                attr.put("author", this.author);
             }
-            this.author = nimet;
         }
-        attr.put("author", this.author);
     }
 
     public void setBooktitle(String booktitle) {
-        this.booktitle = booktitle;
-        attr.put("booktitle", this.booktitle);
+        if (booktitle != null && !booktitle.isEmpty()) {
+            this.booktitle = booktitle;
+            attr.put("booktitle", this.booktitle);
+        }
     }
 
     public void setChapter(String chapter) {
-        this.chapter = chapter;
-        attr.put("chapter", this.chapter);
+        if (chapter != null && !chapter.isEmpty()) {
+            this.chapter = chapter;
+            attr.put("chapter", this.chapter);
+        }
     }
 
     public void setCrossref(String crossref) {
-        this.crossref = crossref;
-        attr.put("crossref", this.crossref);
+        if (crossref != null && !crossref.isEmpty()) {
+            this.crossref = crossref;
+            attr.put("crossref", this.crossref);
+        }
     }
 
     public void setEdition(String edition) {
-        this.edition = edition;
-        attr.put("edition", this.edition);
+        if (edition != null && !edition.isEmpty()) {
+            this.edition = edition;
+            attr.put("edition", this.edition);
+        }
     }
 
     public void setEditor(HashMap<Integer, ArrayList<String>> editors) {
-        String editorit = "";
-        Set set = editors.entrySet();
-        Iterator iter = set.iterator();
-        Map.Entry me;
-        ArrayList<String> temp;
+        if (editors != null && editors.isEmpty()) {
 
-        if (editors.size() == 1) {
-            me = (Map.Entry) iter.next();
-            temp = (ArrayList) me.getValue();
-            if (temp.size() > 2) {
-                editorit += editorit + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-            } else {
-                editorit += editorit + temp.get(1) + ", " + temp.get(0);
-            }
-            this.editor = editorit;
-        } else if (editors.size() > 1) {
-            while (iter.hasNext()) {
-                me = (Map.Entry) iter.next();
-                temp = (ArrayList) me.getValue();
-                if (temp.size() > 2) {
-                    editorit += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-                } else {
-                    editorit += temp.get(1) + ", " + temp.get(0);
+            String editorit = "";
+            Set set = editors.entrySet();
+
+            if (!set.isEmpty()) {
+
+                Iterator iter = set.iterator();
+                Map.Entry me;
+                ArrayList<String> temp;
+
+                if (editors.size() == 1) {
+                    me = (Map.Entry) iter.next();
+                    temp = (ArrayList) me.getValue();
+                    if (temp.size() > 2) {
+                        editorit += editorit + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+                    } else {
+                        editorit += editorit + temp.get(1) + ", " + temp.get(0);
+                    }
+                    this.editor = editorit;
+                } else if (editors.size() > 1) {
+                    while (iter.hasNext()) {
+                        me = (Map.Entry) iter.next();
+                        temp = (ArrayList) me.getValue();
+                        if (temp.size() > 2) {
+                            editorit += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+                        } else {
+                            editorit += temp.get(1) + ", " + temp.get(0);
+                        }
+                        if (iter.hasNext()) {
+                            editorit += "and ";
+                        }
+                    }
+                    this.editor = editorit;
                 }
-                if (iter.hasNext()) {
-                    editorit += "and ";
-                }
+                attr.put("editor", this.editor);
             }
-            this.editor = editorit;
         }
-        attr.put("editor", this.editor);
     }
 
     public void setEntrytype(String entrytype) {
-        this.entrytype = entrytype;
+        if (entrytype != null && !entrytype.isEmpty()) {
+            this.entrytype = entrytype;
+        }
     }
 
     public void setEprint(String eprint) {
-        this.eprint = eprint;
-        attr.put("eprint", this.eprint);
+        if (eprint != null && !eprint.isEmpty()) {
+            this.eprint = eprint;
+            attr.put("eprint", this.eprint);
+        }
     }
 
     public void setHowpublished(String howpublished) {
-        this.howpublished = howpublished;
-        attr.put("howpublished", this.howpublished);
+        if (howpublished != null && !howpublished.isEmpty()) {
+            this.howpublished = howpublished;
+            attr.put("howpublished", this.howpublished);
+        }
     }
 
     public void setInstitution(String institution) {
-        this.institution = institution;
-        attr.put("institution", this.institution);
+        if (institution != null && !institution.isEmpty()) {
+            this.institution = institution;
+            attr.put("institution", this.institution);
+        }
     }
 
     public void setJournal(String journal) {
-        this.journal = journal;
-        attr.put("journal", this.journal);
+        if (journal != null && !journal.isEmpty()) {
+            this.journal = journal;
+            attr.put("journal", this.journal);
+        }
     }
 
     public void setKey(String key) {
-        this.key = key;
+        if (key != null && !key.isEmpty()) {
+            this.key = key;
+        }
     }
 
     public void setMonth(String month) {
-        this.month = month;
-        attr.put("month", this.month);
+        if (month != null && !month.isEmpty()) {
+            this.month = month;
+            attr.put("month", this.month);
+        }
     }
 
     public void setNote(String note) {
-        this.note = note;
-        attr.put("note", this.note);
+        if (note != null && !note.isEmpty()) {
+            this.note = note;
+            attr.put("note", this.note);
+        }
     }
 
     public void setNumber(String number) {
-        this.number = number;
-        attr.put("number", this.number);
+        if (number != null && !number.isEmpty()) {
+            this.number = number;
+            attr.put("number", this.number);
+        }
     }
 
     public void setOrganization(String organization) {
-        this.organization = organization;
-        attr.put("organization", this.organization);
+        if (organization != null && !organization.isEmpty()) {
+            this.organization = organization;
+            attr.put("organization", this.organization);
+        }
     }
 
     public void setPages(String pages) {
-        this.pages = pages;
-        attr.put("pages", this.pages);
+        if (pages != null && !pages.isEmpty()) {
+            this.pages = pages;
+            attr.put("pages", this.pages);
+        }
     }
 
     public void setPublisher(String publisher) {
-        this.publisher = publisher;
-        attr.put("publisher", this.publisher);
+        if (publisher != null && !publisher.isEmpty()) {
+            this.publisher = publisher;
+            attr.put("publisher", this.publisher);
+        }
     }
 
     public void setSchool(String school) {
-        this.school = school;
-        attr.put("school", this.school);
+        if (school != null && !school.isEmpty()) {
+            this.school = school;
+            attr.put("school", this.school);
+        }
     }
 
     public void setSeries(String series) {
-        this.series = series;
-        attr.put("series", this.series);
+        if (series != null && !series.isEmpty()) {
+            this.series = series;
+            attr.put("series", this.series);
+        }
     }
 
     public void setTitle(String title) {
-        this.title = title;
-        attr.put("title", this.title);
+        if (title != null && !title.isEmpty()) {
+            this.title = title;
+            attr.put("title", this.title);
+        }
     }
 
     public void setType(String type) {
-        this.type = type;
-        attr.put("type", this.type);
+        if (type != null && !type.isEmpty()) {
+            this.type = type;
+            attr.put("type", this.type);
+        }
     }
 
     public void setUrl(String url) {
-        this.url = url;
-        attr.put("url", this.url);
+        if (url != null && !url.isEmpty()) {
+            this.url = url;
+            attr.put("url", this.url);
+        }
     }
 
     public void setVolume(String volume) {
-        this.volume = volume;
-        attr.put("volume", this.volume);
+        if (volume != null && !volume.isEmpty()) {
+            this.volume = volume;
+            attr.put("volume", this.volume);
+        }
     }
 
     public void setYear(String year) {
-        this.year = year;
-        attr.put("year", this.year);
+        if (year != null && !year.isEmpty()) {
+            this.year = year;
+            attr.put("year", this.year);
+        }
     }
-
 //    public static void main(String[] args) throws IOException {
 //
 //        Reference ref_1;

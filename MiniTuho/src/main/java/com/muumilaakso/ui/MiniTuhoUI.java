@@ -13,7 +13,6 @@ import java.util.HashMap;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-
 /**
  *
  * @author jusalo
@@ -141,7 +140,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
     private void clearTxt() {
         for (JTextField txt : refTabTxt) {
-            txt.setText("");
+            if (!(txt.equals(authorTxt1) || txt.equals(authorTxt2)
+                    || txt.equals(authorTxt3) || txt.equals(editorTxt1)
+                    || txt.equals(editorTxt2) || txt.equals(editorTxt3))) {
+                txt.setText("");
+            }
         }
     }
 
@@ -276,8 +279,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         });
 
         authorTxt3.setText("prefix");
+        authorTxt3.setMinimumSize(new java.awt.Dimension(51, 28));
 
         authorTxt2.setText("last");
+        authorTxt2.setMinimumSize(new java.awt.Dimension(35, 28));
         authorTxt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 authorTxt2ActionPerformed(evt);
@@ -333,6 +338,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         });
 
         authorTxt1.setText("first");
+        authorTxt1.setMinimumSize(new java.awt.Dimension(38, 28));
         authorTxt1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 authorTxt1ActionPerformed(evt);
@@ -561,10 +567,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                     .addComponent(annoteLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(authorTxt1)
+                    .addComponent(authorTxt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(authorLbl)
-                    .addComponent(authorTxt3)
-                    .addComponent(authorTxt2)
+                    .addComponent(authorTxt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(authorTxt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(addAuthBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -790,7 +796,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-                                     
+
     private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
         // TODO add your handling code here:
         System.exit(0);
@@ -823,15 +829,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private void addEditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEditBtnActionPerformed
         // TODO add your handling code here:
         getEditor();
-
-        editorCounter++;
     }//GEN-LAST:event_addEditBtnActionPerformed
 
     private void addAuthBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAuthBtnActionPerformed
         // TODO add your handling code here:
         getAuthor();
-
-        authCounter++;
     }//GEN-LAST:event_addAuthBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
@@ -1576,66 +1578,64 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_optionalChckBxActionPerformed
 
     private void getAuthor() {
-        if (authors == null) {
-            authors = new HashMap<Integer, ArrayList<String>>();
-        }
-
         auth = new ArrayList<String>();
-        boolean hasAuthor = false;
 
         String authorFirst = authorTxt1.getText();
-        String authorLast = authorTxt3.getText();
-        String authorPrefix = authorTxt2.getText();
+        String authorLast = authorTxt2.getText();
+        String authorPrefix = authorTxt3.getText();
 
-        if (authorFirst != null && !authorFirst.isEmpty()) {
+        if (authorFirst != null && !authorFirst.isEmpty()
+                && !authorFirst.contentEquals("first")) {
             auth.add(authorFirst);
-            authorTxt1.setText("");
-            hasAuthor = true;
+            authorTxt1.setText("first");
         }
-        if (authorLast != null && !authorLast.isEmpty()) {
+        if (authorLast != null && !authorLast.isEmpty()
+                && !authorLast.contentEquals("last")) {
             auth.add(authorLast);
-            authorTxt3.setText("");
-            hasAuthor = true;
+            authorTxt2.setText("last");
         }
-        if (authorPrefix != null && !authorPrefix.isEmpty()) {
+        if (authorPrefix != null && !authorPrefix.isEmpty()
+                && !authorPrefix.contentEquals("prefix")) {
             auth.add(authorPrefix);
-            authorTxt2.setText("");
-            hasAuthor = true;
+            authorTxt3.setText("prefix");
         }
-        if (hasAuthor) {
+        if (!auth.isEmpty()) {
+            if (authors == null) {
+                authors = new HashMap<Integer, ArrayList<String>>();
+            }
             authors.put(authCounter, auth);
+            authCounter++;
         }
     }
 
     private void getEditor() {
-        if (editors == null) {
-            editors = new HashMap<Integer, ArrayList<String>>();
-        }
-
         editor = new ArrayList<String>();
-        boolean hasEditor = false;
 
-        String editorFirst = editorTxt2.getText();
-        String editorLast = editorTxt3.getText();
-        String editorPrefix = editorTxt1.getText();
+        String editorFirst = editorTxt1.getText();
+        String editorLast = editorTxt2.getText();
+        String editorPrefix = editorTxt3.getText();
 
-        if (editorFirst != null && !editorFirst.isEmpty()) {
+        if (editorFirst != null && !editorFirst.isEmpty()
+                && !editorFirst.contentEquals("first")) {
             editor.add(editorFirst);
-            editorTxt2.setText("");
-            hasEditor = true;
+            editorTxt1.setText("first");
         }
-        if (editorLast != null && !editorLast.isEmpty()) {
+        if (editorLast != null && !editorLast.isEmpty()
+                && !editorLast.contentEquals("last")) {
             editor.add(editorLast);
-            editorTxt3.setText("");
-            hasEditor = true;
+            editorTxt2.setText("last");
         }
-        if (editorPrefix != null && !editorPrefix.isEmpty()) {
+        if (editorPrefix != null && !editorPrefix.isEmpty()
+                && !editorPrefix.contentEquals("prefix")) {
             editor.add(editorPrefix);
-            editorTxt1.setText("");
-            hasEditor = true;
+            editorTxt3.setText("prefix");
         }
-        if (hasEditor) {
+        if (!editor.isEmpty()) {
+            if (editors == null) {
+                editors = new HashMap<Integer, ArrayList<String>>();
+            }
             editors.put(editorCounter, editor);
+            editorCounter++;
         }
     }
 
