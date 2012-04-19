@@ -48,7 +48,6 @@ public class Modify {
         System.out.println("6 " + muokattava.getTitle());
         System.out.println("7 " + muokattava.getType());
         System.out.println("8 " + muokattava.getYear());
-        System.out.println("9 Poista kaikki");
     }
 
     // Kälissä käyttäjä valitsee nyt minkä tiedon haluaa muokata.
@@ -94,9 +93,9 @@ public class Modify {
                 muokattava.setYear(Integer.parseInt(uusi));
                 break; 
                 
-            case 9:
-                matches.remove(muokattava); // poistaa viitteen listasta?
-                break;
+//            case 9:
+//                matches.remove(muokattava); // poistaa viitteen listasta?
+//                break;
         }
     }
 }
