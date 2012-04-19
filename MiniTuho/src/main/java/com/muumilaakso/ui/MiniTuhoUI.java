@@ -4,14 +4,20 @@
  */
 package com.muumilaakso.ui;
 
+import com.muumilaakso.io.BibTex;
+import com.muumilaakso.management.EntryTypeEnums;
+import com.muumilaakso.management.EntryTypeEnums.entryTypes;
 import com.muumilaakso.management.Reference;
 import com.muumilaakso.management.Search;
 import com.muumilaakso.management.Storage;
 import java.awt.Component;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 
@@ -30,6 +36,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     int authCounter, editorCounter;
     Storage storage;
     Search search;
+    entryTypes[] eType;
 
     /**
      * Creates new form MiniTuhoUI
@@ -39,6 +46,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         storage = new Storage();
         refTabTxt = new ArrayList<JTextField>();
         refTabComponents = new ArrayList();
+        eType = EntryTypeEnums.entryTypes.values();
+
         initComponents();
         storeComponents();
         hideComponents();
@@ -236,6 +245,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         searchTxt = new javax.swing.JTextField();
         searchBtn = new javax.swing.JButton();
         emptyBtn = new javax.swing.JButton();
+        bibtexBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("teX");
@@ -741,6 +751,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
 
+        bibtexBtn.setText("BibTeX");
+        bibtexBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bibtexBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout editPnlLayout = new javax.swing.GroupLayout(editPnl);
         editPnl.setLayout(editPnlLayout);
         editPnlLayout.setHorizontalGroup(
@@ -763,7 +780,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                 .addComponent(editRefBtn)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emptyBtn)
+                        .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(emptyBtn)
+                            .addComponent(bibtexBtn, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addContainerGap())))
         );
         editPnlLayout.setVerticalGroup(
@@ -780,7 +799,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remRefBtn)
-                    .addComponent(editRefBtn))
+                    .addComponent(editRefBtn)
+                    .addComponent(bibtexBtn))
                 .addContainerGap())
         );
 
@@ -874,6 +894,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         if (addBtn.getText().equals("Lisää")) {
             ref = new Reference();
             storage.addRef(ref);
+            authors = new HashMap<Integer, ArrayList<String>>();
+            editors = new HashMap<Integer, ArrayList<String>>();
         } else {
             addBtn.setText("Lisää");
         }
@@ -893,7 +915,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         getEditor();
         ref.setEditor(editors);
 
-        ref.setEntrytype(entryCBx.getSelectedIndex());
+        String entryType = eType[entryCBx.getSelectedIndex()].toString();
+        ref.setEntrytype(entryType);
+
         ref.setEprint(eprintTxt.getText());
         ref.setHowpublished(howpublishedTxt.getText());
         ref.setInstitution(institutionTxt.getText());
@@ -1028,6 +1052,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     volumeLbl.setVisible(true);
@@ -1044,9 +1071,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 1:
@@ -1072,6 +1096,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
 
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
+
 //                optional
                 if (optionalChckBx.isSelected()) {
                     volumeLbl.setVisible(true);
@@ -1094,15 +1121,15 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 2:
 //                booklet
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 
 //                optional
                 if (optionalChckBx.isSelected()) {
@@ -1126,9 +1153,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 3:
@@ -1147,6 +1171,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 
 //                optional
                 if (optionalChckBx.isSelected()) {
@@ -1182,9 +1209,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 4:
@@ -1215,6 +1239,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     volumeLbl.setVisible(true);
@@ -1240,9 +1267,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 5:
@@ -1264,6 +1288,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     editorLbl.setVisible(true);
@@ -1301,9 +1328,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 6:
@@ -1322,6 +1346,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 
 //                optional
                 if (optionalChckBx.isSelected()) {
@@ -1357,15 +1384,15 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 7:
 //                manual
                 titleLbl.setVisible(true);
                 titleTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     authorLbl.setVisible(true);
@@ -1391,9 +1418,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 8:
@@ -1412,6 +1436,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     typeLbl.setVisible(true);
@@ -1425,13 +1452,12 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 9:
 //                misc
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     authorLbl.setVisible(true);
@@ -1454,9 +1480,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 10:
@@ -1475,6 +1498,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     typeLbl.setVisible(true);
@@ -1488,9 +1514,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 11:
@@ -1500,6 +1523,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     editorLbl.setVisible(true);
@@ -1531,9 +1557,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 12:
@@ -1552,6 +1575,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 yearLbl.setVisible(true);
                 yearTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     typeLbl.setVisible(true);
@@ -1568,9 +1594,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     noteLbl.setVisible(true);
                     noteTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
             case 13:
@@ -1586,6 +1609,9 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 noteLbl.setVisible(true);
                 noteTxt.setVisible(true);
+
+                keyLbl.setVisible(true);
+                keyTxt.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     monthLbl.setVisible(true);
@@ -1593,9 +1619,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                     yearLbl.setVisible(true);
                     yearTxt.setVisible(true);
-
-                    keyLbl.setVisible(true);
-                    keyTxt.setVisible(true);
                 }
                 break;
         }
@@ -1624,17 +1647,35 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         this.ref = getSelected();
 
         if (ref != null) {
-            int type = ref.getEntrytype();
+            int type = EntryTypeEnums.entryTypes.valueOf(ref.getEntrytype()).ordinal();
+
             entryCBx.setSelectedIndex(type);
             iterateRef(ref);
 
             addBtn.setText("Muokkaa");
             refTab.setSelectedIndex(0);
-
         }
     }//GEN-LAST:event_editRefBtnActionPerformed
 
+    private void bibtexBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibtexBtnActionPerformed
+        BibTex bibtex = null;
+//
+        if (searchTxt.getText() != null && !searchTxt.getText().isEmpty()) {
+            search = new Search(storage.getRefs());
+            bibtex = new BibTex(search.listMatching(searchTxt.getText()));
+        } else {
+            bibtex = new BibTex(storage.getRefs());
+        }
+        try {
+            bibtex.printBibTex();
+        } catch (IOException ex) {
+            Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bibtexBtnActionPerformed
+
     private void iterateRef(Reference ref) {
+        keyTxt.setText(ref.getKey());
+
         HashMap<String, String> attr = ref.getAttr();
 
         Iterator it = attr.entrySet().iterator();
@@ -1819,6 +1860,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JTextField authorTxt1;
     private javax.swing.JTextField authorTxt2;
     private javax.swing.JTextField authorTxt3;
+    private javax.swing.JButton bibtexBtn;
     private javax.swing.JLabel booktitleLbl;
     private javax.swing.JTextField booktitleTxt;
     private javax.swing.JLabel chapterLbl;

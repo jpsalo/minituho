@@ -717,7 +717,10 @@
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="emptyBtn" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="emptyBtn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bibtexBtn" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -740,6 +743,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="remRefBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="editRefBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bibtexBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -809,6 +813,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emptyBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="bibtexBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="BibTeX"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bibtexBtnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

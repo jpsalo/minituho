@@ -6,6 +6,7 @@
 package com.muumilaakso.management;
 
 import com.muumilaakso.io.BibTex;
+import com.muumilaakso.management.EntryTypeEnums.entryTypes;
 import java.io.IOException;
 import java.util.*;
 
@@ -42,7 +43,7 @@ public class Reference {
     String url;
     String volume;
     String year;
-    int entrytype;
+    String entrytype;
 
     /**
      * Konstruktori
@@ -84,7 +85,7 @@ public class Reference {
         return editor;
     }
 
-    public int getEntrytype() {
+    public String getEntrytype() {
         return entrytype;
     }
 
@@ -289,7 +290,7 @@ public class Reference {
         }
     }
 
-    public void setEntrytype(int entrytype) {
+    public void setEntrytype(String entrytype) {
         this.entrytype = entrytype;
     }
 
@@ -441,6 +442,7 @@ public class Reference {
 //        map_1.put(0, list_1);
 //
 //        ref_1.setEntrytype("article");
+//
 //        ref_1.setKey("artc1");
 //        ref_1.setAuthor(map_1);
 //        ref_1.setPages("200");
