@@ -38,7 +38,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     /**
      * Creates new form MiniTuhoUI
      */
-    public MiniTuhoUI() {
+    public MiniTuhoUI() throws IOException {
         dlm = new DefaultListModel();
         storage = new Storage();
         refTabTxt = new ArrayList<JTextField>();
@@ -248,6 +248,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         searchBtn = new javax.swing.JButton();
         emptyBtn = new javax.swing.JButton();
         bibtexBtn = new javax.swing.JButton();
+        expBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("teX");
@@ -570,7 +571,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                     .addComponent(addAuthBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(annoteTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                 .addComponent(tagTxt)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTxt, annoteTxt, booktitleTxt, chapterTxt, crossrefTxt, editionTxt, entryCBx, eprintTxt, howpublishedTxt, institutionTxt, journalTxt, keyTxt, monthTxt, noteTxt, numberTxt, organizationTxt, pagesTxt, publisherTxt, schoolTxt, seriesTxt, titleTxt, typeTxt, urlTxt, volumeTxt, yearTxt});
@@ -771,6 +772,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
 
+        expBtn.setText("Export");
+        expBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                expBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout editPnlLayout = new javax.swing.GroupLayout(editPnl);
         editPnl.setLayout(editPnlLayout);
         editPnlLayout.setHorizontalGroup(
@@ -791,6 +799,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                 .addComponent(remRefBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(editRefBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(expBtn)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -813,7 +823,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remRefBtn)
                     .addComponent(editRefBtn)
-                    .addComponent(bibtexBtn))
+                    .addComponent(bibtexBtn)
+                    .addComponent(expBtn))
                 .addContainerGap())
         );
 
@@ -1687,6 +1698,14 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bibtexBtnActionPerformed
 
+    private void expBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expBtnActionPerformed
+        try {
+            storage.exportXML();
+        } catch (IOException ex) {
+            Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_expBtnActionPerformed
+
     private void iterateRef(Reference ref) {
         keyTxt.setText(ref.getKey());
 
@@ -1857,7 +1876,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new MiniTuhoUI().setVisible(true);
+                try {
+                    new MiniTuhoUI().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -1895,6 +1918,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JLabel entryLbl;
     private javax.swing.JLabel eprintLbl;
     private javax.swing.JTextField eprintTxt;
+    private javax.swing.JButton expBtn;
     private javax.swing.JLabel howpublishedLbl;
     private javax.swing.JTextField howpublishedTxt;
     private javax.swing.JLabel institutionLbl;

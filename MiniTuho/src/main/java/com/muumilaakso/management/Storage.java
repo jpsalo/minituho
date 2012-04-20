@@ -21,7 +21,7 @@ public class Storage {
 
     ArrayList<Reference> refs;
     File store = new File("store.txt");
-    FileWriter output; 
+    FileWriter output;
 
     public Storage() throws IOException {
         refs = new ArrayList<Reference>();
@@ -67,20 +67,25 @@ public class Storage {
      * Exports the arraylist to XML-file for easy importing action.
      */
     public void exportXML() throws IOException {
-        String out = "";
         for (Reference reference : refs) {
-            HashMap<String, String> attr = reference.getAttr();
+            output.append("<reference>\n");
+            output.append("<key>" + reference.getKey() + "</key>\n");
+            output.append("<entryType>" + reference.getEntrytype() + "</entryType>\n");
 
+            HashMap<String, String> attr = reference.getAttr();
             Iterator it = attr.entrySet().iterator();
 
             while (it.hasNext()) {
+                String out = "";
                 Map.Entry pairs = (Map.Entry) it.next();
                 String attrKey = pairs.getKey().toString();
                 String attrValue = pairs.getValue().toString();
-                out += "<" + attrKey + ">" + ":" + attrValue + "</" + attrKey + ">\n";
+                out += "<" + attrKey + ">" + attrValue + "</" + attrKey + ">\n";
                 output.append(out);
             }
+            output.append("</reference>\n");
         }
+        output.close();
     }
 
     /**
