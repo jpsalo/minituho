@@ -6,12 +6,12 @@
 package com.muumilaakso.management;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +20,7 @@ import java.util.Map;
 public class Storage {
 
     ArrayList<Reference> refs;
-    File store = new File("store.txt");
+    File store = new File("store.xml");
     FileWriter output;
 
     public Storage() throws IOException {
@@ -67,6 +67,8 @@ public class Storage {
      * Exports the arraylist to XML-file for easy importing action.
      */
     public void exportXML() throws IOException {
+        String alku = "<?xml version=" + "\"1.0\"?>";
+        output.append(alku);
         for (Reference reference : refs) {
             output.append("<reference>\n");
             output.append("<key>" + reference.getKey() + "</key>\n");
@@ -77,12 +79,13 @@ public class Storage {
 
             while (it.hasNext()) {
                 String out = "";
-                Map.Entry pairs = (Map.Entry) it.next();
+                Map.Entry pairs = (Map.Entry) it.next(); 
                 String attrKey = pairs.getKey().toString();
                 String attrValue = pairs.getValue().toString();
                 out += "<" + attrKey + ">" + attrValue + "</" + attrKey + ">\n";
                 output.append(out);
             }
+
             output.append("</reference>\n");
         }
         output.close();
@@ -92,5 +95,15 @@ public class Storage {
      * Imports the database from a XML-file.
      */
     public void importXML() {
+        File input = new File("store.xml");
+        Scanner reader = null;
+        try {
+            reader = new Scanner(input);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while (reader.hasNextLine()) {
+            
+        }
     }
 }
