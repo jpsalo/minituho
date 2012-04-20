@@ -21,16 +21,11 @@ public class StorageTest extends TestCase {
 
         this.testRef = new Reference();
         
-        String type = "type";
-        ArrayList<String> author = new ArrayList<String>();
-        author.add("author1");
-        author.add("author2");
-        String title = "title";
-        int year = 1;
-        String booktitle = "booktitle";
-        String publisher = "publisher";
-        String pages = "pages";
-        String address = "address";
+        testRef.address = "osoite";
+
+//        ArrayList<String> author = new ArrayList<String>();
+//        author.add("author1");
+//        author.add("author2");
 
 //        this.testRef = new Reference(type, author, title, year, publisher, booktitle, pages, address);
 
@@ -44,6 +39,16 @@ public class StorageTest extends TestCase {
         testStorage.addRef(testRef);
         
         assertTrue(testStorage.getRefs().contains(testRef));
+    }
+    
+    public void testAddRef2() {
+        testStorage.addRef(testRef);
+        testStorage.addRef(testRef);
+        
+        testStorage.remRef(testRef);
+        
+        assertTrue(!testStorage.getRefs().contains(testRef));
+        
     }
 
     /**
