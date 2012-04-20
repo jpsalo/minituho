@@ -13,34 +13,35 @@ import java.util.*;
  */
 public class Reference {
 
-    HashMap<String, String> attr;
-    String address;
-    String annote;
-    String author;
-    String booktitle;
-    String chapter;
-    String crossref;
-    String edition;
-    String editor;
-    String eprint;
-    String howpublished;
-    String institution;
-    String journal;
-    String key;
-    String month;
-    String note;
-    String number;
-    String organization;
-    String pages;
-    String publisher;
-    String school;
-    String series;
-    String title;
-    String type;
-    String url;
-    String volume;
-    String year;
-    String entrytype;
+    private HashMap<String, String> attr;
+    private String address;
+    private String annote;
+    private String author;
+    private String booktitle;
+    private String chapter;
+    private String crossref;
+    private String edition;
+    private String editor;
+    private String eprint;
+    private String howpublished;
+    private String institution;
+    private String journal;
+    private String key;
+    private String month;
+    private String note;
+    private String number;
+    private String organization;
+    private String pages;
+    private String publisher;
+    private String school;
+    private String series;
+    private String title;
+    private String type;
+    private String url;
+    private String volume;
+    private String year;
+    private String entrytype;
+    private String tag;
 
     /**
      * Konstruktori
@@ -472,4 +473,22 @@ public class Reference {
 //        BibTex bt = new BibTex(refs);
 //        bt.printBibTex();
 //    }
+
+    /**
+     * @return the tag
+     */
+    public String getTag() {
+        return tag;
+    }
+
+    /**
+     * @param tag the tag to set
+     */
+    public void setTag(String tag) {
+        if (tag == null) {
+            this.tag = tag;
+        } else {
+            this.tag += " " + tag;
+        }
+    }
 }
