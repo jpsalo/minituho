@@ -6,17 +6,15 @@ import com.muumilaakso.management.EntryTypeEnums.entryTypes;
 import com.muumilaakso.management.Reference;
 import com.muumilaakso.management.Search;
 import com.muumilaakso.management.Storage;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.awt.BorderLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JComponent;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 /**
  *
@@ -34,6 +32,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     Storage storage;
     Search search;
     entryTypes[] eType;
+    static private final String newline = "\n";
+    JButton openButton, saveButton;
+    JTextArea log;
+    JFileChooser fc;
 
     /**
      * Creates new form MiniTuhoUI
@@ -1655,8 +1657,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_editRefBtnActionPerformed
 
     private void bibtexBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibtexBtnActionPerformed
+
         BibTex bibtex = null;
-//
         if (searchTxt.getText() != null && !searchTxt.getText().isEmpty()) {
             search = new Search(storage.getRefs());
             bibtex = new BibTex(search.listMatching(searchTxt.getText()));
@@ -1664,7 +1666,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             bibtex = new BibTex(storage.getRefs());
         }
         try {
+            final JFileChooser fc = new JFileChooser();
+            int returnVal = fc.showOpenDialog(this);
             bibtex.printBibTex();
+            
         } catch (IOException ex) {
             Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
         }

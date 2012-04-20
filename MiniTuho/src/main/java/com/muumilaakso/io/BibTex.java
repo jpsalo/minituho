@@ -22,13 +22,21 @@ public class BibTex {
     BufferedWriter writer;
     ArrayList<Reference> viitteet;
 
+    /**
+     * Konstruktori
+     * 
+     * @param viitteet ArrayList
+     */
     public BibTex(ArrayList<Reference> viitteet) {
         this.viitteet = viitteet;
+        createWriter();
     }
-
-    public void createWriter() {
+/**
+ * Luo uuden FileWriter
+ */
+    public final void createWriter() {
         try {
-            out = new FileWriter("bibtex.bib");
+            out = new FileWriter("BibTex.bib");
             writer = new BufferedWriter(out);
         } catch (IOException ex) {
             Logger.getLogger(BibTex.class.getName()).log(Level.SEVERE, null, ex);
@@ -36,17 +44,11 @@ public class BibTex {
     }
 
     public void printBibTex() throws IOException {
-
-        createWriter();
-
         for (int i = 0; i < viitteet.size(); i++) {
-
             writer.write("@");
             writer.write(viitteet.get(i).getEntrytype());
-//            System.out.println(i + " " + viitteet.get(i).getEntrytype());
             writer.write('{');
             writer.write(viitteet.get(i).getKey());
-//            System.out.println(i + " " + viitteet.get(i).getKey());
             writer.write(',');
             writer.write('\n');
 
@@ -57,11 +59,9 @@ public class BibTex {
             while (iter.hasNext()) {
                 Map.Entry me = (Map.Entry) iter.next();
                 writer.write(me.getKey().toString());
-//                System.out.println(me.getKey().toString());
                 writer.write('\t');
                 writer.write("= ");
                 writer.write("{" + me.getValue().toString() + "},");
-//                System.out.println("{" + me.getValue().toString() + "},");
                 writer.write('\n');
             }
             writer.write('}');
