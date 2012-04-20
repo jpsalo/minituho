@@ -29,6 +29,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     ArrayList<JTextField> refTabTxt;
     ArrayList refTabComponents;
     HashMap<Integer, ArrayList<String>> authors, editors;
+    String tag;
     DefaultListModel dlm;
     int authCounter, editorCounter;
     Storage storage;
@@ -238,6 +239,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         optionalChckBx = new javax.swing.JCheckBox();
         tagTxt = new javax.swing.JTextField();
         tagLbl = new javax.swing.JLabel();
+        addTagBtn = new javax.swing.JButton();
         editPnl = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         refList = new javax.swing.JList(dlm);
@@ -483,6 +485,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         tagLbl.setText("tags");
 
+        addTagBtn.setText("Uusi");
+        addTagBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTagBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -569,8 +578,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(addAuthBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(annoteTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addComponent(tagTxt)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(tagTxt)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(addTagBtn))))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTxt, annoteTxt, booktitleTxt, chapterTxt, crossrefTxt, editionTxt, entryCBx, eprintTxt, howpublishedTxt, institutionTxt, journalTxt, keyTxt, monthTxt, noteTxt, numberTxt, organizationTxt, pagesTxt, publisherTxt, schoolTxt, seriesTxt, titleTxt, typeTxt, urlTxt, volumeTxt, yearTxt});
@@ -695,8 +707,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(tagTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tagTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addTagBtn))
+                        .addGap(11, 11, 11)
                         .addComponent(optionalChckBx))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(tagLbl)
@@ -909,6 +923,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             storage.addRef(ref);
             authors = new HashMap<Integer, ArrayList<String>>();
             editors = new HashMap<Integer, ArrayList<String>>();
+            tag = "";
         } else {
             addBtn.setText("Lisää");
         }
@@ -1687,6 +1702,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bibtexBtnActionPerformed
 
+    private void addTagBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTagBtnActionPerformed
+        // TODO add your handling code here:
+        ref.setTag(tagTxt.getText());
+    }//GEN-LAST:event_addTagBtnActionPerformed
+
     private void iterateRef(Reference ref) {
         keyTxt.setText(ref.getKey());
 
@@ -1866,6 +1886,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JButton addBtn;
     private javax.swing.JButton addEditBtn;
     private javax.swing.JPanel addPnl;
+    private javax.swing.JButton addTagBtn;
     private javax.swing.JLabel addressLbl;
     private javax.swing.JTextField addressTxt;
     private javax.swing.JLabel annoteLbl;

@@ -183,12 +183,16 @@
                                                   <Component id="addAuthBtn" max="32767" attributes="0"/>
                                               </Group>
                                               <Component id="annoteTxt" linkSize="5" alignment="0" pref="200" max="32767" attributes="0"/>
-                                              <Component id="tagTxt" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="tagTxt" max="32767" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="addTagBtn" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="28" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -339,8 +343,11 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="tagTxt" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="tagTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="addTagBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                       <Component id="optionalChckBx" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -696,6 +703,14 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="tags"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="addTagBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Uusi"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addTagBtnActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
