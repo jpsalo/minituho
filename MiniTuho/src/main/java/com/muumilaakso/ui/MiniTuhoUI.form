@@ -101,90 +101,107 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="urlLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="addBtn" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Component id="optionalChckBx" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="yearLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="publisherLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pagesLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="journalLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="titleLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="typeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="keyLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="numberLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="noteLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="howpublishedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="editionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="institutionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="crossrefLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chapterLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="authorLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="monthLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="schoolLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="seriesLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="addressLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="organizationLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="booktitleLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="editorLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="annoteLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="entryLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="eprintLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="volumeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="publisherLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="pagesLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="journalLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="titleLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="typeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="keyLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="numberLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="noteLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="howpublishedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="editionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="institutionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="crossrefLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="chapterLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="authorLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="monthLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="schoolLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="seriesLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="addressLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="organizationLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="booktitleLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="editorLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="annoteLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="entryLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="eprintLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="volumeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="yearLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="tagLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="crossrefTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="editionTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="organizationTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="pagesTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chapterTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="titleTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="booktitleTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="keyTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="monthTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="schoolTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="noteTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="volumeTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="publisherTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="seriesTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="urlTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="typeTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="institutionTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="journalTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="howpublishedTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="numberTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="eprintTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="editorTxt1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="editorTxt2" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="editorTxt3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="addEditBtn" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="crossrefTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="editionTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="organizationTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="pagesTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="chapterTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="titleTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="booktitleTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="keyTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="monthTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="schoolTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="noteTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="publisherTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="seriesTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="urlTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="typeTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="institutionTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="journalTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="howpublishedTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="numberTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="eprintTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="editorTxt1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="editorTxt2" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="editorTxt3" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="addEditBtn" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="addressTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="entryCBx" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="authorTxt1" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="authorTxt2" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="authorTxt3" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="addAuthBtn" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="annoteTxt" linkSize="5" alignment="0" pref="200" max="32767" attributes="0"/>
+                                                      <Group type="102" attributes="0">
+                                                          <Component id="tagTxt" max="32767" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="addTagBtn" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Component id="volumeTxt" linkSize="5" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="yearTxt" linkSize="5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="addressTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="entryCBx" linkSize="5" alignment="0" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="authorTxt1" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="authorTxt2" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="authorTxt3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="addAuthBtn" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="annoteTxt" linkSize="5" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                              <Component id="yearTxt" linkSize="5" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                               <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -323,16 +340,22 @@
                                   <Component id="urlLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="volumeTxt" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="volumeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="volumeLbl" min="-2" max="-2" attributes="0"/>
+                                  <Component id="volumeTxt" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="yearTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="yearLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="tagTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addTagBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tagLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="addBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="optionalChckBx" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -676,6 +699,21 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optionalChckBxActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="tagTxt">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="tagLbl">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="tags"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="addTagBtn">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Uusi"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addTagBtnActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
