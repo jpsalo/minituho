@@ -70,4 +70,25 @@ public class SearchTest extends TestCase {
         assertTrue(tulos.isEmpty());     
     }
     
+    /**
+     * Test of listMatching(String haet) method, of class Search.
+     */
+    public void testlistMatching_titleNotFound() {
+        ArrayList tulos = testSearch.listMatching("Muumimamman räiskäleet",true);       
+        
+        assertTrue(tulos.isEmpty());   
+    }
+    
+    /**
+     * Test of listMatching(String haet) method, of class Search.
+     */
+    public void testlistMatching_noAttr() {
+        testRef.setAddress("");
+        testRef.setTitle("");
+        testRef.setBooktitle("");
+        ArrayList tulos = testSearch.listMatching("Muumimamman räiskäleet");       
+        
+        assertTrue(tulos.isEmpty());   
+    }
+    
 }
