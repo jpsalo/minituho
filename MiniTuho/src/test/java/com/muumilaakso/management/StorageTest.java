@@ -21,7 +21,7 @@ public class StorageTest extends TestCase {
 
         this.testRef = new Reference();
         
-        testRef.address = "osoite";
+        testRef.setAddress("osoite");
 
 //        ArrayList<String> author = new ArrayList<String>();
 //        author.add("author1");
