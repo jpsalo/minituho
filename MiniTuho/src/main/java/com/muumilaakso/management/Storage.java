@@ -34,7 +34,7 @@ public class Storage {
     File store = new File("store.xml");
     FileWriter output;
 
-    public Storage() throws IOException {  
+    public Storage() throws IOException {
         builderFactory = DocumentBuilderFactory.newInstance();
         builderFactory.setValidating(true);
         builderFactory.setNamespaceAware(true);
@@ -99,7 +99,7 @@ public class Storage {
 
             while (it.hasNext()) {
                 String out = "";
-                Map.Entry pairs = (Map.Entry) it.next(); 
+                Map.Entry pairs = (Map.Entry) it.next();
                 String attrKey = pairs.getKey().toString();
                 String attrValue = pairs.getValue().toString();
                 out += "<" + attrKey + ">" + attrValue + "</" + attrKey + ">\n";
@@ -123,7 +123,7 @@ public class Storage {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        }
         System.out.println("====");
         NodeList lista = document.getElementsByTagName("*");
         for (int i = 0; i < lista.getLength(); i++) {
@@ -131,7 +131,65 @@ public class Storage {
             System.out.println(e.getNodeName());
             NodeList arvot = e.getChildNodes();
             for (int j = 0; j < arvot.getLength(); j++) {
-                System.out.println(arvot.item(j).getNodeValue());
+                if (arvot.item(j).getNodeValue() != null) {
+                    System.out.println(arvot.item(j).getNodeValue());
+                    if (e.getNodeName().equals("address")) {
+                    }
+                    if (e.getNodeName().equals("annote")) {
+                    }
+                    if (e.getNodeName().equals("author")) {
+                    }
+                    if (e.getNodeName().equals("booktitle")) {
+                    }
+                    if (e.getNodeName().equals("chapter")) {
+                    }
+                    if (e.getNodeName().equals("crossref")) {
+                    }
+                    if (e.getNodeName().equals("edition")) {
+                    }
+                    if (e.getNodeName().equals("editor")) {
+                    }
+                    if (e.getNodeName().equals("eprint")) {
+                    }
+                    if (e.getNodeName().equals("howpublished")) {
+                    }
+                    if (e.getNodeName().equals("institution")) {
+                    }
+                    if (e.getNodeName().equals("journal")) {
+                    }
+                    if (e.getNodeName().equals("key")) {
+                    }
+                    if (e.getNodeName().equals("month")) {
+                    }
+                    if (e.getNodeName().equals("note")) {
+                    }
+                    if (e.getNodeName().equals("number")) {
+                    }
+                    if (e.getNodeName().equals("organization")) {
+                    }
+                    if (e.getNodeName().equals("pages")) {
+                    }
+                    if (e.getNodeName().equals("publisher")) {
+                    }
+                    if (e.getNodeName().equals("school")) {
+                    }
+                    if (e.getNodeName().equals("series")) {
+                    }
+                    if (e.getNodeName().equals("title")) {
+                    }
+                    if (e.getNodeName().equals("type")) {
+                    }
+                    if (e.getNodeName().equals("url")) {
+                    }
+                    if (e.getNodeName().equals("volume")) {
+                    }
+                    if (e.getNodeName().equals("year")) {
+                    }
+                    if (e.getNodeName().equals("entrytype")) {
+                    }
+                    if (e.getNodeName().equals("tag")) {
+                    }
+                }
             }
         }
         System.out.println("====");
