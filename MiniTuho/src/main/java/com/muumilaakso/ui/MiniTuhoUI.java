@@ -6,17 +6,15 @@ import com.muumilaakso.management.EntryTypeEnums.entryTypes;
 import com.muumilaakso.management.Reference;
 import com.muumilaakso.management.Search;
 import com.muumilaakso.management.Storage;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.awt.BorderLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JComponent;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 /**
  *
@@ -29,16 +27,21 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     ArrayList<JTextField> refTabTxt;
     ArrayList refTabComponents;
     HashMap<Integer, ArrayList<String>> authors, editors;
+    String tag;
     DefaultListModel dlm;
     int authCounter, editorCounter;
     Storage storage;
     Search search;
     entryTypes[] eType;
+    static private final String newline = "\n";
+    JButton openButton, saveButton;
+    JTextArea log;
+    JFileChooser fc;
 
     /**
      * Creates new form MiniTuhoUI
      */
-    public MiniTuhoUI() {
+    public MiniTuhoUI() throws IOException {
         dlm = new DefaultListModel();
         storage = new Storage();
         refTabTxt = new ArrayList<JTextField>();
@@ -134,6 +137,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         refTabComponents.add(yearLbl);
         refTabTxt.add(yearTxt);
+
+        refTabComponents.add(tagLbl);
+        refTabTxt.add(tagTxt);
+        refTabComponents.add(addTagBtn);
     }
 
     private void hideComponents() {
@@ -233,6 +240,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         addEditBtn = new javax.swing.JButton();
         urlLbl = new javax.swing.JLabel();
         optionalChckBx = new javax.swing.JCheckBox();
+        tagTxt = new javax.swing.JTextField();
+        tagLbl = new javax.swing.JLabel();
+        addTagBtn = new javax.swing.JButton();
+        refLbl = new javax.swing.JLabel();
         editPnl = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         refList = new javax.swing.JList(dlm);
@@ -243,6 +254,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         searchBtn = new javax.swing.JButton();
         emptyBtn = new javax.swing.JButton();
         bibtexBtn = new javax.swing.JButton();
+        expBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("teX");
@@ -476,6 +488,15 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
 
+        tagLbl.setText("tags");
+
+        addTagBtn.setText("Uusi");
+        addTagBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTagBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -485,39 +506,46 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(urlLbl)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createSequentialGroup()
                             .addComponent(addBtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(refLbl)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(optionalChckBx))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(yearLbl)
-                                .addComponent(publisherLbl)
-                                .addComponent(pagesLbl)
-                                .addComponent(journalLbl)
-                                .addComponent(titleLbl)
-                                .addComponent(typeLbl)
-                                .addComponent(keyLbl)
-                                .addComponent(numberLbl)
-                                .addComponent(noteLbl)
-                                .addComponent(howpublishedLbl)
-                                .addComponent(editionLbl)
-                                .addComponent(institutionLbl)
-                                .addComponent(crossrefLbl)
-                                .addComponent(chapterLbl)
-                                .addComponent(authorLbl)
-                                .addComponent(monthLbl)
-                                .addComponent(schoolLbl)
-                                .addComponent(seriesLbl)
-                                .addComponent(addressLbl)
-                                .addComponent(organizationLbl)
-                                .addComponent(booktitleLbl)
-                                .addComponent(editorLbl)
-                                .addComponent(annoteLbl)
-                                .addComponent(entryLbl)
-                                .addComponent(eprintLbl)
-                                .addComponent(volumeLbl))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(publisherLbl)
+                                            .addComponent(pagesLbl)
+                                            .addComponent(journalLbl)
+                                            .addComponent(titleLbl)
+                                            .addComponent(typeLbl)
+                                            .addComponent(keyLbl)
+                                            .addComponent(numberLbl)
+                                            .addComponent(noteLbl)
+                                            .addComponent(howpublishedLbl)
+                                            .addComponent(editionLbl)
+                                            .addComponent(institutionLbl)
+                                            .addComponent(crossrefLbl)
+                                            .addComponent(chapterLbl)
+                                            .addComponent(authorLbl)
+                                            .addComponent(monthLbl)
+                                            .addComponent(schoolLbl)
+                                            .addComponent(seriesLbl)
+                                            .addComponent(addressLbl)
+                                            .addComponent(organizationLbl)
+                                            .addComponent(booktitleLbl)
+                                            .addComponent(editorLbl)
+                                            .addComponent(annoteLbl)
+                                            .addComponent(entryLbl)
+                                            .addComponent(eprintLbl))
+                                        .addComponent(volumeLbl, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(yearLbl, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(tagLbl, javax.swing.GroupLayout.Alignment.LEADING))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+//<<<<
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(crossrefTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(editionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -561,6 +589,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                     .addComponent(addAuthBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(annoteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(30, Short.MAX_VALUE))
+//>>>>
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTxt, annoteTxt, booktitleTxt, chapterTxt, crossrefTxt, editionTxt, entryCBx, eprintTxt, howpublishedTxt, institutionTxt, journalTxt, keyTxt, monthTxt, noteTxt, numberTxt, organizationTxt, pagesTxt, publisherTxt, schoolTxt, seriesTxt, titleTxt, typeTxt, urlTxt, volumeTxt, yearTxt});
@@ -675,17 +704,23 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                     .addComponent(urlTxt)
                     .addComponent(urlLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(volumeTxt)
-                    .addComponent(volumeLbl))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(volumeLbl)
+                    .addComponent(volumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yearTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tagTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addTagBtn)
+                    .addComponent(tagLbl))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addBtn)
-                    .addComponent(optionalChckBx))
+                    .addComponent(optionalChckBx)
+                    .addComponent(refLbl))
                 .addContainerGap())
         );
 
@@ -755,6 +790,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
 
+        expBtn.setText("Export");
+        expBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                expBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout editPnlLayout = new javax.swing.GroupLayout(editPnl);
         editPnl.setLayout(editPnlLayout);
         editPnlLayout.setHorizontalGroup(
@@ -775,6 +817,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                 .addComponent(remRefBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(editRefBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(expBtn)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -797,7 +841,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remRefBtn)
                     .addComponent(editRefBtn)
-                    .addComponent(bibtexBtn))
+                    .addComponent(bibtexBtn)
+                    .addComponent(expBtn))
                 .addContainerGap())
         );
 
@@ -888,57 +933,70 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addAuthBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
-        if (addBtn.getText().equals("Lisää")) {
-            ref = new Reference();
-            storage.addRef(ref);
-            authors = new HashMap<Integer, ArrayList<String>>();
-            editors = new HashMap<Integer, ArrayList<String>>();
-        } else {
-            addBtn.setText("Lisää");
+        String key = keyTxt.getText();
+        String title = titleTxt.getText();
+
+        if (key.isEmpty() || title.isEmpty()) {
+            refLbl.setText("\"Key\" tai \"Title\" puuttuu");
         }
-        ref.setAddress(addressTxt.getText());
-        ref.setAnnote(annoteTxt.getText());
+        else {
+            if (addBtn.getText().equals("Lisää")) {
+                ref = new Reference();
+                storage.addRef(ref);
+                authors = new HashMap<Integer, ArrayList<String>>();
+                editors = new HashMap<Integer, ArrayList<String>>();
+            } else {
+                addBtn.setText("Lisää");
+            }
+
+            ref.setAddress(addressTxt.getText());
+            ref.setAnnote(annoteTxt.getText());
+
 //        author
 
-        getAuthor();
-        ref.setAuthor(authors);
+            getAuthor();
+            ref.setAuthor(authors);
 
-        ref.setBooktitle(booktitleTxt.getText());
-        ref.setChapter(chapterTxt.getText());
-        ref.setCrossref(crossrefTxt.getText());
-        ref.setEdition(editionTxt.getText());
+            ref.setBooktitle(booktitleTxt.getText());
+            ref.setChapter(chapterTxt.getText());
+            ref.setCrossref(crossrefTxt.getText());
+            ref.setEdition(editionTxt.getText());
+
 //        editor
+            getEditor();
+            ref.setEditor(editors);
 
-        getEditor();
-        ref.setEditor(editors);
+            String entryType = eType[entryCBx.getSelectedIndex()].toString();
+            ref.setEntrytype(entryType);
 
-        String entryType = eType[entryCBx.getSelectedIndex()].toString();
-        ref.setEntrytype(entryType);
+            ref.setEprint(eprintTxt.getText());
+            ref.setHowpublished(howpublishedTxt.getText());
+            ref.setInstitution(institutionTxt.getText());
+            ref.setJournal(journalTxt.getText());
+            ref.setKey(key);
+            ref.setMonth(monthTxt.getText());
+            ref.setNumber(numberTxt.getText());
+            ref.setOrganization(organizationTxt.getText());
+            ref.setPages(pagesTxt.getText());
+            ref.setPublisher(publisherTxt.getText());
+            ref.setSchool(schoolTxt.getText());
+            ref.setSeries(seriesTxt.getText());
+            ref.setTitle(title);
+            ref.setType(typeTxt.getText());
+            ref.setUrl(urlTxt.getText());
+            ref.setVolume(volumeTxt.getText());
+            ref.setYear(yearTxt.getText());
+        	ref.setTag(tagTxt.getText());
 
-        ref.setEprint(eprintTxt.getText());
-        ref.setHowpublished(howpublishedTxt.getText());
-        ref.setInstitution(institutionTxt.getText());
-        ref.setJournal(journalTxt.getText());
-        ref.setKey(keyTxt.getText());
-        ref.setMonth(monthTxt.getText());
-        ref.setNumber(numberTxt.getText());
-        ref.setOrganization(organizationTxt.getText());
-        ref.setPages(pagesTxt.getText());
-        ref.setPublisher(publisherTxt.getText());
-        ref.setSchool(schoolTxt.getText());
-        ref.setSeries(seriesTxt.getText());
-        ref.setTitle(titleTxt.getText());
-        ref.setType(typeTxt.getText());
-        ref.setUrl(urlTxt.getText());
-        ref.setVolume(volumeTxt.getText());
-        ref.setYear(yearTxt.getText());
+            authCounter = 0;
+            editorCounter = 0;
 
-        authCounter = 0;
-        editorCounter = 0;
+            clearTxt();
 
-        clearTxt();
+            populateList(storage.getRefs());
 
-        populateList(storage.getRefs());
+            refLbl.setText("");
+        }
     }//GEN-LAST:event_addBtnActionPerformed
 
     private void populateList(ArrayList<Reference> refs) {
@@ -1655,8 +1713,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_editRefBtnActionPerformed
 
     private void bibtexBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bibtexBtnActionPerformed
+
         BibTex bibtex = null;
-//
         if (searchTxt.getText() != null && !searchTxt.getText().isEmpty()) {
             search = new Search(storage.getRefs());
             bibtex = new BibTex(search.listMatching(searchTxt.getText()));
@@ -1664,11 +1722,26 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             bibtex = new BibTex(storage.getRefs());
         }
         try {
+            final JFileChooser fc = new JFileChooser();
+            fc.showOpenDialog(this);
             bibtex.printBibTex();
+            
         } catch (IOException ex) {
             Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_bibtexBtnActionPerformed
+
+    private void addTagBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTagBtnActionPerformed
+        // TODO add your handling code here:
+        ref.setTag(tagTxt.getText());
+    }//GEN-LAST:event_addTagBtnActionPerformed
+    private void expBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expBtnActionPerformed
+        try {
+            storage.exportXML();
+        } catch (IOException ex) {
+            Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_expBtnActionPerformed
 
     private void iterateRef(Reference ref) {
         keyTxt.setText(ref.getKey());
@@ -1839,8 +1912,13 @@ public class MiniTuhoUI extends javax.swing.JFrame {
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
 
+            @Override
             public void run() {
-                new MiniTuhoUI().setVisible(true);
+                try {
+                    new MiniTuhoUI().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -1849,6 +1927,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JButton addBtn;
     private javax.swing.JButton addEditBtn;
     private javax.swing.JPanel addPnl;
+    private javax.swing.JButton addTagBtn;
     private javax.swing.JLabel addressLbl;
     private javax.swing.JTextField addressTxt;
     private javax.swing.JLabel annoteLbl;
@@ -1878,6 +1957,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JLabel entryLbl;
     private javax.swing.JLabel eprintLbl;
     private javax.swing.JTextField eprintTxt;
+    private javax.swing.JButton expBtn;
     private javax.swing.JLabel howpublishedLbl;
     private javax.swing.JTextField howpublishedTxt;
     private javax.swing.JLabel institutionLbl;
@@ -1904,6 +1984,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JTextField pagesTxt;
     private javax.swing.JLabel publisherLbl;
     private javax.swing.JTextField publisherTxt;
+    private javax.swing.JLabel refLbl;
     private javax.swing.JList refList;
     private javax.swing.JTabbedPane refTab;
     private javax.swing.JButton remRefBtn;
@@ -1913,6 +1994,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JTextField searchTxt;
     private javax.swing.JLabel seriesLbl;
     private javax.swing.JTextField seriesTxt;
+    private javax.swing.JLabel tagLbl;
+    private javax.swing.JTextField tagTxt;
     private javax.swing.JLabel titleLbl;
     private javax.swing.JTextField titleTxt;
     private javax.swing.JLabel typeLbl;
