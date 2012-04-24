@@ -116,8 +116,9 @@ public class Storage {
      * Imports the database from a XML-file.
      */
     public void importXML() {
-        File input = new File("store.xml");
         try {
+            output.close();
+            File input = new File("store.xml");
             document = builder.parse(input);
         } catch (SAXException ex) {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
@@ -131,63 +132,93 @@ public class Storage {
             System.out.println(e.getNodeName());
             NodeList arvot = e.getChildNodes();
             for (int j = 0; j < arvot.getLength(); j++) {
+                Reference curr = new Reference();
                 if (arvot.item(j).getNodeValue() != null) {
                     System.out.println(arvot.item(j).getNodeValue());
                     if (e.getNodeName().equals("address")) {
+                        curr.setAddress(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("annote")) {
+                        curr.setAnnote(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("author")) {
+                        
+                      //curr.setAuthor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("booktitle")) {
+                        curr.setBooktitle(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("chapter")) {
+                        curr.setChapter(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("crossref")) {
+                        curr.setCrossref(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("edition")) {
+                        curr.setEdition(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("editor")) {
+                       // curr.setEditor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("eprint")) {
+                        curr.setEprint(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("howpublished")) {
+                        curr.setHowpublished(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("institution")) {
+                        curr.setInstitution(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("journal")) {
+                        curr.setJournal(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("key")) {
+                        curr.setKey(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("month")) {
+                        curr.setMonth(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("note")) {
+                        curr.setNote(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("number")) {
+                        curr.setNumber(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("organization")) {
+                        curr.setOrganization(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("pages")) {
+                        curr.setPages(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("publisher")) {
+                        curr.setPublisher(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("school")) {
+                        curr.setSchool(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("series")) {
+                        curr.setSeries(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("title")) {
+                        curr.setTitle(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("type")) {
+                        curr.setType(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("url")) {
+                        curr.setUrl(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("volume")) {
+                        curr.setVolume(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("year")) {
+                        curr.setYear(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("entrytype")) {
+                        curr.setEntrytype(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("tag")) {
+                        curr.setTag(arvot.item(j).getNodeValue());
                     }
                 }
             }

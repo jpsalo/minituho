@@ -51,6 +51,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         initComponents();
         storeComponents();
         hideComponents();
+//        storage.importXML();
     }
 
     private void storeComponents() {
@@ -883,6 +884,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
     private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
         // TODO add your handling code here:
+//        storage.importXML();
         String srch = searchTxt.getText();
 
         if (srch != null && !srch.isEmpty()) {
