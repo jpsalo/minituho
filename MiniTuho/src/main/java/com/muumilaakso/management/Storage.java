@@ -12,6 +12,11 @@ import java.io.IOException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.text.Document;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -19,11 +24,19 @@ import java.util.logging.Logger;
  */
 public class Storage {
 
+    DocumentBuilderFactory builderFactory;
+    DocumentBuilder builder = null;
     ArrayList<Reference> refs;
     File store = new File("store.xml");
     FileWriter output;
 
     public Storage() throws IOException {
+        builderFactory = DocumentBuilderFactory.newInstance();
+        try {
+            builder = builderFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            System.out.println("Hobla habla cha-cha-cha");
+        }
         refs = new ArrayList<Reference>();
         output = new FileWriter(store);
     }
@@ -79,7 +92,7 @@ public class Storage {
 
             while (it.hasNext()) {
                 String out = "";
-                Map.Entry pairs = (Map.Entry) it.next(); 
+                Map.Entry pairs = (Map.Entry) it.next();
                 String attrKey = pairs.getKey().toString();
                 String attrValue = pairs.getValue().toString();
                 out += "<" + attrKey + ">" + attrValue + "</" + attrKey + ">\n";
@@ -96,14 +109,12 @@ public class Storage {
      */
     public void importXML() {
         File input = new File("store.xml");
-        Scanner reader = null;
         try {
-            reader = new Scanner(input);
-        } catch (FileNotFoundException ex) {
+            Document document = (Document) builder.parse(input);
+        } catch (SAXException ex) {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        while (reader.hasNextLine()) {
-            
+        } catch (IOException ex) {
+            Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
