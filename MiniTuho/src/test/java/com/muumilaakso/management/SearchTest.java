@@ -35,7 +35,7 @@ public class SearchTest extends TestCase {
     }
 
     /**
-     * Test of listMatching(String haet) method, of class Search.
+     * Test of listMatching method, of class Search.
      */
     public void testlistMatching() {
         Reference tulos = testSearch.listMatching("Muumilaakso").get(0);
@@ -44,7 +44,7 @@ public class SearchTest extends TestCase {
     }    
     
     /**
-     * Test of listMatching(String haet) method, of class Search.
+     * Test of listMatching method, of class Search.
      */
     public void testlistMatching_title() {
         Reference tulos = testSearch.listMatching("Muumilaakson tarinat",true).get(0);       
@@ -53,7 +53,7 @@ public class SearchTest extends TestCase {
     }
     
     /**
-     * Test of listMatching(String haet) method, of class Search.
+     * Test of listMatching method, of class Search.
      */
     public void testlistMatching_notTitle() {
         Reference tulos = testSearch.listMatching("Pikkumyy").get(0);
@@ -62,7 +62,7 @@ public class SearchTest extends TestCase {
     }
     
     /**
-     * Test of listMatching(String haet) method, of class Search.
+     * Test of listMatching method, of class Search.
      */
     public void testlistMatching_notFound() {
         ArrayList tulos = testSearch.listMatching("Haisuli"); 
@@ -71,24 +71,12 @@ public class SearchTest extends TestCase {
     }
     
     /**
-     * Test of listMatching(String haet) method, of class Search.
+     * Test of listMatching method, of class Search.
      */
     public void testlistMatching_titleNotFound() {
         ArrayList tulos = testSearch.listMatching("Muumimamman räiskäleet",true);       
         
         assertTrue(tulos.isEmpty());   
-    }
-    
-    /**
-     * Test of listMatching(String haet) method, of class Search.
-     */
-    public void testlistMatching_noAttr() {
-        testRef.setAddress("");
-        testRef.setTitle("");
-        testRef.setBooktitle("");
-        ArrayList tulos = testSearch.listMatching("Muumimamman räiskäleet");       
-        
-        assertTrue(tulos.isEmpty());   
-    }
+}
     
 }
