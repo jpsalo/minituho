@@ -68,7 +68,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         refTabComponents.add(booktitleLbl);
         refTabTxt.add(booktitleTxt);
-
+        
         refTabComponents.add(chapterLbl);
         refTabTxt.add(chapterTxt);
 
@@ -1758,7 +1758,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             Map.Entry pairs = (Map.Entry) it.next();
             String attrKey = pairs.getKey().toString();
             String attrValue = pairs.getValue().toString();
-
+            
             if (attrKey.equals("address")) {
                 addressTxt.setText(attrValue);
             } else if (attrKey.equals("annote")) {
