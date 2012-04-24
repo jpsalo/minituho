@@ -12,11 +12,6 @@ import java.io.IOException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
-=======
-
-import javax.swing.text.Document;
->>>>>>> e84f0587d90c8dfd933bc39297f7d6122d48c7d3
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -38,12 +33,7 @@ public class Storage {
     File store = new File("store.xml");
     FileWriter output;
 
-<<<<<<< HEAD
     public Storage() throws IOException {  
-=======
-    public Storage() throws IOException {
-
->>>>>>> e84f0587d90c8dfd933bc39297f7d6122d48c7d3
         builderFactory = DocumentBuilderFactory.newInstance();
         builderFactory.setValidating(true);
         builderFactory.setNamespaceAware(true);
