@@ -31,6 +31,7 @@ public class SearchTest extends TestCase {
         refs.add(testRef);
         testRef.setAddress("Muumitalo");
         testRef.setTitle("Muumilaakson tarinat");
+        testRef.setBooktitle("Pikkumyy");
     }
 
     /**
@@ -39,16 +40,34 @@ public class SearchTest extends TestCase {
     public void testlistMatching() {
         Reference tulos = testSearch.listMatching("Muumilaakso").get(0);
         
-        assertTrue(tulos.getTitle().contains("Muumilaakson tarinat"));       
+        assertTrue(tulos.getAttr().containsValue("Muumilaakson tarinat"));       
     }    
     
     /**
      * Test of listMatching(String haet) method, of class Search.
      */
-    public void testlistMatching2() {
+    public void testlistMatching_title() {
         Reference tulos = testSearch.listMatching("Muumilaakson tarinat",true).get(0);       
         
-        assertTrue(tulos.getTitle().contains("Muumilaakson tarinat"));       
-    }    
+        assertTrue(tulos.getAttr().containsValue("Muumilaakson tarinat"));       
+    }
+    
+    /**
+     * Test of listMatching(String haet) method, of class Search.
+     */
+    public void testlistMatching_notTitle() {
+        Reference tulos = testSearch.listMatching("Pikkumyy").get(0);
+        
+        assertTrue(tulos.getAttr().containsValue("Pikkumyy"));       
+    }
+    
+    /**
+     * Test of listMatching(String haet) method, of class Search.
+     */
+    public void testlistMatching_notFound() {
+        ArrayList tulos = testSearch.listMatching("Haisuli"); 
+        
+        assertTrue(tulos.isEmpty());     
+    }
     
 }
