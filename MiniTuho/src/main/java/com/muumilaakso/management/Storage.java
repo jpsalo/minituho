@@ -35,17 +35,7 @@ public class Storage {
     FileWriter output;
 
     public Storage() throws IOException {
-        builderFactory = DocumentBuilderFactory.newInstance();
-        builderFactory.setValidating(true);
-        builderFactory.setNamespaceAware(true);
-        try {
-            builder = builderFactory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            System.out.println("Hobla habla cha-cha-cha");
-        }
-
         refs = new ArrayList<Reference>();
-        output = new FileWriter(store);
     }
 
     /**
@@ -87,6 +77,7 @@ public class Storage {
      * Exports the arraylist to XML-file for easy importing action.
      */
     public void exportXML() throws IOException {
+        output = new FileWriter(store);
         String alku = "<?xml version=" + "\"1.0\"?>\n";
         output.append(alku);
         for (Reference reference : refs) {
@@ -109,16 +100,24 @@ public class Storage {
             output.append("</reference>\n");
         }
         output.close();
-        importXML();
+//        importXML();
     }
 
     /**
      * Imports the database from a XML-file.
      */
     public void importXML() {
+        builderFactory = DocumentBuilderFactory.newInstance();
+        builderFactory.setValidating(true);
+        builderFactory.setNamespaceAware(true);
+        File input = null;
         try {
-            output.close();
-            File input = new File("store.xml");
+            builder = builderFactory.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            System.out.println("Hobla habla cha-cha-cha");
+        }
+        try {
+            input = new File("store.xml");
             document = builder.parse(input);
         } catch (SAXException ex) {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,8 +141,7 @@ public class Storage {
                         curr.setAnnote(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("author")) {
-                        
-                      //curr.setAuthor(arvot.item(j).getNodeValue());
+                        //curr.setAuthor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("booktitle")) {
                         curr.setBooktitle(arvot.item(j).getNodeValue());
@@ -158,7 +156,7 @@ public class Storage {
                         curr.setEdition(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("editor")) {
-                       // curr.setEditor(arvot.item(j).getNodeValue());
+                        // curr.setEditor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("eprint")) {
                         curr.setEprint(arvot.item(j).getNodeValue());

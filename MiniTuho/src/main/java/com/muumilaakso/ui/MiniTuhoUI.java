@@ -69,7 +69,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         refTabComponents.add(booktitleLbl);
         refTabTxt.add(booktitleTxt);
-        
+
         refTabComponents.add(chapterLbl);
         refTabTxt.add(chapterTxt);
 
@@ -944,8 +944,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
         if (key.isEmpty() || title.isEmpty()) {
             refLbl.setText("\"Key\" tai \"Title\" puuttuu");
-        }
-        else {
+        } else {
             if (addBtn.getText().equals("Lisää")) {
                 ref = new Reference();
                 storage.addRef(ref);
@@ -992,7 +991,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             ref.setUrl(urlTxt.getText());
             ref.setVolume(volumeTxt.getText());
             ref.setYear(yearTxt.getText());
-        	ref.setTag(tagTxt.getText());
+            ref.setTag(tagTxt.getText());
 
             authCounter = 0;
             editorCounter = 0;
@@ -1731,7 +1730,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             final JFileChooser fc = new JFileChooser();
             fc.showOpenDialog(this);
             bibtex.printBibTex();
-            
+
         } catch (IOException ex) {
             Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1760,7 +1759,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             Map.Entry pairs = (Map.Entry) it.next();
             String attrKey = pairs.getKey().toString();
             String attrValue = pairs.getValue().toString();
-            
+
             if (attrKey.equals("address")) {
                 addressTxt.setText(attrValue);
             } else if (attrKey.equals("annote")) {
