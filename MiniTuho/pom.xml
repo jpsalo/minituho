@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <build>
-        <pluginManagement>
             <plugins>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -13,8 +12,25 @@
                         <compilerArgument></compilerArgument>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.easyb</groupId>
+                    <artifactId>maven-easyb-plugin</artifactId>
+                    <version>1.4</version>
+                    <executions>
+                        <execution>
+                            <phase>integration-test</phase>
+                            <goals>
+                                <goal>test</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <storyType>html</storyType>
+                        <storyReport>${basedir}/target/easyb/easyb-report.html
+                        </storyReport>
+                    </configuration>
+                </plugin>
             </plugins>
-        </pluginManagement>
     </build>
     
     <modelVersion>4.0.0</modelVersion>
@@ -37,6 +53,12 @@
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easyb</groupId>
+            <artifactId>easyb-core</artifactId>
+            <version>1.4</version>
+            <scope>test</scope>            
         </dependency>
     </dependencies>
 </project>
