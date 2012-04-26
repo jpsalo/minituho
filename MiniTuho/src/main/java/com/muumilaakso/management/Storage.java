@@ -228,19 +228,10 @@ public class Storage {
                         curr.setTag(arvot.item(j).getNodeValue());
                     }
                 }
-<<<<<<< .merge_file_WnZA90
-
-            }
-            if (curr.getEntrytype() != null && curr.getKey() != null) {
-                this.addRef(curr);
-            }
-=======
             }
                 if (curr.getEntrytype() != null && curr.getKey() != null) {
                     this.addRef(curr);
                 }
-
->>>>>>> .merge_file_yHsK0W
         }
         
         System.out.println("====");

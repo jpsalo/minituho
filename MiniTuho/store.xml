@@ -3,11 +3,21 @@
 <reference>
 <key>kokeilu</key>
 <entryType>booklet</entryType>
-<title>tarutaru</title>
+<authors>Airola, Taru; Myöhänen Matti</authors>
+<title>taru</title>
+<publisher>dsfs</publisher>
 </reference>
 <reference>
+<<<<<<< .merge_file_dJIeZm
 <key>kokeillaan</key>
 <entryType>booklet</entryType>
 <title>toista</title>
+=======
+<key>hfddf</key>
+<entryType>article</entryType>
+<journal>hfdh</journal>
+<authors>gfdsgdfhf</authors>
+<title>hfd</title>
+>>>>>>> .merge_file_9napIg
 </reference>
 </muumikanta>
