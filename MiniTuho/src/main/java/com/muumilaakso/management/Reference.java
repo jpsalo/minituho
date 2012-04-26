@@ -184,47 +184,6 @@ public class Reference {
             attr.put("authors", this.author);
         }
     }
-    
-//    public void setAuthor(HashMap<Integer, ArrayList<String>> authors) {
-//        if (authors != null && !authors.isEmpty()) {
-//
-//            String nimet = "";
-//            Set set = authors.entrySet();
-//
-//            if (!set.isEmpty()) {
-//
-//                Iterator iter = set.iterator();
-//                Map.Entry me;
-//                ArrayList<String> temp;
-//
-//                if (authors.size() == 1) {
-//                    me = (Map.Entry) iter.next();
-//                    temp = (ArrayList) me.getValue();
-//                    if (temp.size() > 2) {
-//                        nimet += nimet + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-//                    } else {
-//                        nimet += nimet + temp.get(1) + ", " + temp.get(0);
-//                    }
-//                    this.author = nimet;
-//                } else if (authors.size() > 1) {
-//                    while (iter.hasNext()) {
-//                        me = (Map.Entry) iter.next();
-//                        temp = (ArrayList) me.getValue();
-//                        if (temp.size() > 2) {
-//                            nimet += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-//                        } else {
-//                            nimet += temp.get(1) + ", " + temp.get(0);
-//                        }
-//                        if (iter.hasNext()) {
-//                            nimet += " and ";
-//                        }
-//                    }
-//                    this.author = nimet;
-//                }
-//                attr.put("author", this.author);
-//            }
-//        }
-//    }
 
     public void setBooktitle(String booktitle) {
         if (booktitle != null && !booktitle.isEmpty()) {
@@ -260,47 +219,6 @@ public class Reference {
             attr.put("editors", this.editor);
         }
     }
-    
-//    public void setEditor(HashMap<Integer, ArrayList<String>> editors) {
-//        if (editors != null && editors.isEmpty()) {
-//
-//            String editorit = "";
-//            Set set = editors.entrySet();
-//
-//            if (!set.isEmpty()) {
-//
-//                Iterator iter = set.iterator();
-//                Map.Entry me;
-//                ArrayList<String> temp;
-//
-//                if (editors.size() == 1) {
-//                    me = (Map.Entry) iter.next();
-//                    temp = (ArrayList) me.getValue();
-//                    if (temp.size() > 2) {
-//                        editorit += editorit + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-//                    } else {
-//                        editorit += editorit + temp.get(1) + ", " + temp.get(0);
-//                    }
-//                    this.editor = editorit;
-//                } else if (editors.size() > 1) {
-//                    while (iter.hasNext()) {
-//                        me = (Map.Entry) iter.next();
-//                        temp = (ArrayList) me.getValue();
-//                        if (temp.size() > 2) {
-//                            editorit += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-//                        } else {
-//                            editorit += temp.get(1) + ", " + temp.get(0);
-//                        }
-//                        if (iter.hasNext()) {
-//                            editorit += "and ";
-//                        }
-//                    }
-//                    this.editor = editorit;
-//                }
-//                attr.put("editor", this.editor);
-//            }
-//        }
-//    }
 
     public void setEntrytype(String entrytype) {
         this.entrytype = entrytype;
@@ -430,63 +348,6 @@ public class Reference {
             attr.put("year", this.year);
         }
     }
-//    public static void main(String[] args) throws IOException {
-//
-//        Reference ref_1;
-//        Reference ref_2;
-//        HashMap<Integer, ArrayList<String>> map_1;
-//        HashMap<Integer, ArrayList<String>> map_2;
-//        ArrayList list_1;
-//        ArrayList list_2;
-//        ArrayList<Reference> refs;
-//
-//
-//
-//        refs = new ArrayList<Reference>();
-//        //reference 1
-//        ref_1 = new Reference();
-//        map_1 = new HashMap();
-//        list_1 = new ArrayList<String>();
-//
-//        list_1.add("Hannu");
-//        list_1.add("Huttunen");
-//        list_1.add("Jr.");
-//        map_1.put(0, list_1);
-//
-//        ref_1.setEntrytype("article");
-//
-//        ref_1.setKey("artc1");
-//        ref_1.setAuthor(map_1);
-//        ref_1.setPages("200");
-//        ref_1.setYear("2011");
-//        ref_1.setMonth("oct");
-//
-//        //reference 2
-//        ref_2 = new Reference();
-//        map_2 = new HashMap();
-//        list_2 = new ArrayList<String>();
-//        list_2.add("John");
-//        list_2.add("Doe");
-//        list_2.add("Sr.");
-//        map_2.put(0, list_2);
-//        ArrayList<String> list_3 = new ArrayList<String>();
-//        list_3.add("Mary");
-//        list_3.add("Sue");
-//        list_3.add("Ms.");
-//        map_2.put(1, list_3);
-//
-//        ref_2.setEntrytype("article");
-//        ref_2.setKey("artc2");
-//        ref_2.setAuthor(map_2);
-//        ref_2.setPages("600");
-//        ref_2.setYear("2010");
-//
-//        refs.add(ref_1);
-//        refs.add(ref_2);
-//
-//        BibTex bt = new BibTex(refs);
-//        bt.printBibTex();
-//    }
 
     /**
      * @return the tag

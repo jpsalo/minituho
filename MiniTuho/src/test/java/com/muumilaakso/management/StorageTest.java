@@ -1,6 +1,5 @@
 package com.muumilaakso.management;
 
-import java.util.ArrayList;
 import junit.framework.TestCase;
 
 /**
@@ -22,12 +21,6 @@ public class StorageTest extends TestCase {
         this.testRef = new Reference();
         
         testRef.setAddress("osoite");
-
-//        ArrayList<String> author = new ArrayList<String>();
-//        author.add("author1");
-//        author.add("author2");
-
-//        this.testRef = new Reference(type, author, title, year, publisher, booktitle, pages, address);
 
         this.testStorage = new Storage();
     }
