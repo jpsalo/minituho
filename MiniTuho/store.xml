@@ -1,11 +1,13 @@
 <?xml version="1.0"?>
+<muumikanta>
 <reference>
 <key>kokeilu</key>
 <entryType>booklet</entryType>
 <title>tarutaru</title>
 </reference>
 <reference>
-<key>hihii</key>
+<key>kokeillaan</key>
 <entryType>booklet</entryType>
-<title>hopona</title>
+<title>toista</title>
 </reference>
+</muumikanta>

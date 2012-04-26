@@ -79,7 +79,9 @@ public class Storage {
     public void exportXML() throws IOException {
         output = new FileWriter(store);
         String alku = "<?xml version=" + "\"1.0\"?>\n";
+        String alkuTagi = "<muumikanta>\n";
         output.append(alku);
+        output.append(alkuTagi);
         for (Reference reference : refs) {
             output.append("<reference>\n");
             output.append("<key>" + reference.getKey() + "</key>\n");
@@ -99,6 +101,8 @@ public class Storage {
 
             output.append("</reference>\n");
         }
+        String loppuTagi = "</muumikanta>\n";
+        output.append(loppuTagi);
         output.close();
 //        importXML();
     }
@@ -223,9 +227,10 @@ public class Storage {
                         curr.setTag(arvot.item(j).getNodeValue());
                     }
                 }
-                if (curr.getEntrytype() != null && j == arvot.getLength() - 1 && curr.getKey() != null) {
-                    this.addRef(curr);
-                }
+
+            }
+            if (curr.getEntrytype() != null && curr.getKey() != null) {
+                this.addRef(curr);
             }
         }
         System.out.println("====");
