@@ -107,6 +107,7 @@ public class Storage {
      * Imports the database from a XML-file.
      */
     public void importXML() {
+        
         builderFactory = DocumentBuilderFactory.newInstance();
         builderFactory.setValidating(true);
         builderFactory.setNamespaceAware(true);
@@ -128,11 +129,11 @@ public class Storage {
         NodeList lista = document.getElementsByTagName("*");
         for (int i = 0; i < lista.getLength(); i++) {
             Element e = (Element) lista.item(i);
-            System.out.println(e.getNodeName());
+//            System.out.println(e.getNodeName());
             NodeList arvot = e.getChildNodes();
             for (int j = 0; j < arvot.getLength(); j++) {
                 Reference curr = new Reference();
-                if (arvot.item(j).getNodeValue() != null) {
+                if (arvot.item(j).getNodeValue() != null && !arvot.item(j).getNodeValue().contentEquals("\n")) {
                     System.out.println(arvot.item(j).getNodeValue());
                     if (e.getNodeName().equals("address")) {
                         curr.setAddress(arvot.item(j).getNodeValue());
@@ -218,8 +219,8 @@ public class Storage {
                     if (e.getNodeName().equals("tag")) {
                         curr.setTag(arvot.item(j).getNodeValue());
                     }
+                    this.addRef(curr);
                 }
-                this.addRef(curr);
             }
         }
         System.out.println("====");

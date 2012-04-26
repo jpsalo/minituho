@@ -51,6 +51,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         initComponents();
         storeComponents();
         hideComponents();
+        //populateList(storage.);
         storage.importXML();
     }
 
@@ -979,6 +980,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             populateList(storage.getRefs());
 
             refLbl.setText("Viite");
+        }
+        try {
+            storage.exportXML();
+        } catch (IOException ex) {
+            Logger.getLogger(MiniTuhoUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
