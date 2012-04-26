@@ -219,6 +219,7 @@ public class Storage {
                         curr.setTag(arvot.item(j).getNodeValue());
                     }
                 }
+                this.addRef(curr);
             }
         }
         System.out.println("====");
