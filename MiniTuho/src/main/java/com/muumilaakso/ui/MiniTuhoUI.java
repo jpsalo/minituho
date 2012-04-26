@@ -241,8 +241,8 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         addEditBtn = new javax.swing.JButton();
         urlLbl = new javax.swing.JLabel();
         optionalChckBx = new javax.swing.JCheckBox();
-        tagTxt = new javax.swing.JTextField();
         tagLbl = new javax.swing.JLabel();
+        tagTxt = new javax.swing.JTextField();
         addTagBtn = new javax.swing.JButton();
         refLbl = new javax.swing.JLabel();
         editPnl = new javax.swing.JPanel();
@@ -255,7 +255,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         searchBtn = new javax.swing.JButton();
         emptyBtn = new javax.swing.JButton();
         bibtexBtn = new javax.swing.JButton();
-        expBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("teX");
@@ -337,10 +336,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
         annoteTxt.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 annoteTxtInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
 
@@ -489,14 +488,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
 
-        tagLbl.setText("tags");
+        tagLbl.setText("tag");
 
         addTagBtn.setText("Uusi");
-        addTagBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addTagBtnActionPerformed(evt);
-            }
-        });
+
+        refLbl.setText("Viite");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -506,95 +502,86 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(urlLbl)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(addBtn)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(refLbl)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(optionalChckBx))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(publisherLbl)
-                                            .addComponent(pagesLbl)
-                                            .addComponent(journalLbl)
-                                            .addComponent(titleLbl)
-                                            .addComponent(typeLbl)
-                                            .addComponent(keyLbl)
-                                            .addComponent(numberLbl)
-                                            .addComponent(noteLbl)
-                                            .addComponent(howpublishedLbl)
-                                            .addComponent(editionLbl)
-                                            .addComponent(institutionLbl)
-                                            .addComponent(crossrefLbl)
-                                            .addComponent(chapterLbl)
-                                            .addComponent(authorLbl)
-                                            .addComponent(monthLbl)
-                                            .addComponent(schoolLbl)
-                                            .addComponent(seriesLbl)
-                                            .addComponent(addressLbl)
-                                            .addComponent(organizationLbl)
-                                            .addComponent(booktitleLbl)
-                                            .addComponent(editorLbl)
-                                            .addComponent(annoteLbl)
-                                            .addComponent(entryLbl)
-                                            .addComponent(eprintLbl))
-                                        .addComponent(volumeLbl, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(yearLbl, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addComponent(tagLbl, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(crossrefTxt)
-                                        .addComponent(editionTxt)
-                                        .addComponent(organizationTxt)
-                                        .addComponent(pagesTxt)
-                                        .addComponent(chapterTxt)
-                                        .addComponent(titleTxt)
-                                        .addComponent(booktitleTxt)
-                                        .addComponent(keyTxt)
-                                        .addComponent(monthTxt)
-                                        .addComponent(schoolTxt)
-                                        .addComponent(noteTxt)
-                                        .addComponent(publisherTxt)
-                                        .addComponent(seriesTxt)
-                                        .addComponent(urlTxt)
-                                        .addComponent(typeTxt)
-                                        .addComponent(institutionTxt)
-                                        .addComponent(journalTxt)
-                                        .addComponent(howpublishedTxt)
-                                        .addComponent(numberTxt)
-                                        .addComponent(eprintTxt)
-                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                            .addComponent(editorTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(editorTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(editorTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(addEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(addressTxt)
-                                        .addComponent(entryCBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                            .addComponent(authorTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(authorTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(authorTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(addAuthBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(annoteTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                            .addComponent(tagTxt)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(addTagBtn)))
-                                    .addComponent(volumeTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(yearTxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(yearLbl)
+                            .addComponent(publisherLbl)
+                            .addComponent(pagesLbl)
+                            .addComponent(journalLbl)
+                            .addComponent(titleLbl)
+                            .addComponent(typeLbl)
+                            .addComponent(keyLbl)
+                            .addComponent(numberLbl)
+                            .addComponent(noteLbl)
+                            .addComponent(howpublishedLbl)
+                            .addComponent(editionLbl)
+                            .addComponent(institutionLbl)
+                            .addComponent(crossrefLbl)
+                            .addComponent(chapterLbl)
+                            .addComponent(authorLbl)
+                            .addComponent(monthLbl)
+                            .addComponent(schoolLbl)
+                            .addComponent(seriesLbl)
+                            .addComponent(addressLbl)
+                            .addComponent(organizationLbl)
+                            .addComponent(booktitleLbl)
+                            .addComponent(editorLbl)
+                            .addComponent(annoteLbl)
+                            .addComponent(entryLbl)
+                            .addComponent(eprintLbl)
+                            .addComponent(volumeLbl)
+                            .addComponent(tagLbl)
+                            .addComponent(addBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(optionalChckBx, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(tagTxt)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addTagBtn))
+                            .addComponent(crossrefTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(organizationTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pagesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chapterTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(titleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(booktitleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(keyTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(monthTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(schoolTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(noteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(volumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(publisherTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seriesTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(urlTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(typeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(institutionTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(journalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(howpublishedTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numberTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(eprintTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(editorTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editorTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editorTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addEditBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(yearTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addressTxt)
+                            .addComponent(entryCBx, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(authorTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(authorTxt2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(authorTxt3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(addAuthBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(annoteTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(refLbl))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jPanel5Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addressTxt, annoteTxt, booktitleTxt, chapterTxt, crossrefTxt, editionTxt, entryCBx, eprintTxt, howpublishedTxt, institutionTxt, journalTxt, keyTxt, monthTxt, noteTxt, numberTxt, organizationTxt, pagesTxt, publisherTxt, schoolTxt, seriesTxt, titleTxt, typeTxt, urlTxt, volumeTxt, yearTxt});
@@ -709,24 +696,25 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                     .addComponent(urlTxt)
                     .addComponent(urlLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(volumeLbl)
-                    .addComponent(volumeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(volumeTxt)
+                    .addComponent(volumeLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(yearTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tagLbl)
                     .addComponent(tagTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addTagBtn)
-                    .addComponent(tagLbl))
+                    .addComponent(addTagBtn))
+                .addGap(6, 6, 6)
+                .addComponent(refLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addBtn)
-                    .addComponent(optionalChckBx)
-                    .addComponent(refLbl))
-                .addContainerGap())
+                    .addComponent(optionalChckBx))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane4.setViewportView(jPanel5);
@@ -735,11 +723,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         addPnl.setLayout(addPnlLayout);
         addPnlLayout.setHorizontalGroup(
             addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
         );
         addPnlLayout.setVerticalGroup(
             addPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
         );
 
         refTab.addTab("Viite", addPnl);
@@ -795,13 +783,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             }
         });
 
-        expBtn.setText("Export");
-        expBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                expBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout editPnlLayout = new javax.swing.GroupLayout(editPnl);
         editPnl.setLayout(editPnlLayout);
         editPnlLayout.setHorizontalGroup(
@@ -809,7 +790,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
             .addGroup(editPnlLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
                     .addGroup(editPnlLayout.createSequentialGroup()
                         .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(editPnlLayout.createSequentialGroup()
@@ -822,8 +803,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                                 .addComponent(remRefBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(editRefBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(expBtn)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -846,8 +825,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
                 .addGroup(editPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(remRefBtn)
                     .addComponent(editRefBtn)
-                    .addComponent(bibtexBtn)
-                    .addComponent(expBtn))
+                    .addComponent(bibtexBtn))
                 .addContainerGap())
         );
 
@@ -1000,7 +978,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
             populateList(storage.getRefs());
 
-            refLbl.setText("asd");
+            refLbl.setText("Viite");
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
@@ -1115,6 +1093,11 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
+                
 //                optional
                 if (optionalChckBx.isSelected()) {
                     volumeLbl.setVisible(true);
@@ -1158,6 +1141,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 
 //                optional
                 if (optionalChckBx.isSelected()) {
@@ -1190,6 +1177,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 
 //                optional
                 if (optionalChckBx.isSelected()) {
@@ -1234,6 +1225,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 
 //                optional
                 if (optionalChckBx.isSelected()) {
@@ -1302,6 +1297,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     volumeLbl.setVisible(true);
@@ -1351,6 +1350,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     editorLbl.setVisible(true);
@@ -1409,6 +1412,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 
 //                optional
                 if (optionalChckBx.isSelected()) {
@@ -1453,6 +1460,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     authorLbl.setVisible(true);
@@ -1499,6 +1510,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     typeLbl.setVisible(true);
@@ -1518,6 +1533,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 //                misc
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     authorLbl.setVisible(true);
@@ -1561,6 +1580,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     typeLbl.setVisible(true);
@@ -1586,6 +1609,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     editorLbl.setVisible(true);
@@ -1638,6 +1665,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     typeLbl.setVisible(true);
@@ -1672,6 +1703,10 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
                 keyLbl.setVisible(true);
                 keyTxt.setVisible(true);
+                
+                tagLbl.setVisible(true);
+                tagTxt.setVisible(true);
+                addTagBtn.setVisible(true);
 //                optional
                 if (optionalChckBx.isSelected()) {
                     monthLbl.setVisible(true);
@@ -1962,7 +1997,6 @@ public class MiniTuhoUI extends javax.swing.JFrame {
     private javax.swing.JLabel entryLbl;
     private javax.swing.JLabel eprintLbl;
     private javax.swing.JTextField eprintTxt;
-    private javax.swing.JButton expBtn;
     private javax.swing.JLabel howpublishedLbl;
     private javax.swing.JTextField howpublishedTxt;
     private javax.swing.JLabel institutionLbl;
