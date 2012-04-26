@@ -39,7 +39,7 @@ public class TestBibTex extends TestCase {
         
         ref_1.setEntrytype("article");
         ref_1.setKey("artc1");
-        ref_1.setAuthor(map_1);
+//        ref_1.setAuthor(map_1);
         ref_1.setPages("200");
         ref_1.setYear("2011");
         ref_1.setMonth("oct");
@@ -55,7 +55,7 @@ public class TestBibTex extends TestCase {
         
         ref_2.setEntrytype("article");
         ref_2.setKey("artc1");
-        ref_2.setAuthor(map_2);
+//        ref_2.setAuthor(map_2);
         ref_2.setPages("600");
         ref_2.setYear("2010");
         

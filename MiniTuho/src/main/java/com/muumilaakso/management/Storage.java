@@ -123,6 +123,7 @@ public class Storage {
         }
         try {
             input = new File("store.xml");
+            
             document = builder.parse(input);
         } catch (SAXException ex) {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,8 +149,8 @@ public class Storage {
                     if (e.getNodeName().equals("annote")) {
                         curr.setAnnote(arvot.item(j).getNodeValue());
                     }
-                    if (e.getNodeName().equals("author")) {
-                        //curr.setAuthor(arvot.item(j).getNodeValue());
+                    if (e.getNodeName().equals("authors")) {
+                        curr.setAuthor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("booktitle")) {
                         curr.setBooktitle(arvot.item(j).getNodeValue());
@@ -163,8 +164,8 @@ public class Storage {
                     if (e.getNodeName().equals("edition")) {
                         curr.setEdition(arvot.item(j).getNodeValue());
                     }
-                    if (e.getNodeName().equals("editor")) {
-                        // curr.setEditor(arvot.item(j).getNodeValue());
+                    if (e.getNodeName().equals("editors")) {
+                        curr.setEditor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("eprint")) {
                         curr.setEprint(arvot.item(j).getNodeValue());
@@ -227,12 +228,21 @@ public class Storage {
                         curr.setTag(arvot.item(j).getNodeValue());
                     }
                 }
+<<<<<<< .merge_file_WnZA90
 
             }
             if (curr.getEntrytype() != null && curr.getKey() != null) {
                 this.addRef(curr);
             }
+=======
+            }
+                if (curr.getEntrytype() != null && curr.getKey() != null) {
+                    this.addRef(curr);
+                }
+
+>>>>>>> .merge_file_yHsK0W
         }
+        
         System.out.println("====");
     }
 }
