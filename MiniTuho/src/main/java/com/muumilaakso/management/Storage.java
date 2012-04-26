@@ -155,7 +155,7 @@ public class Storage {
                     if (e.getNodeName().equals("annote")) {
                         curr.setAnnote(arvot.item(j).getNodeValue());
                     }
-                    if (e.getNodeName().equals("authors")) {
+                    if (e.getNodeName().equals("author")) {
                         curr.setAuthor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("booktitle")) {
@@ -170,7 +170,7 @@ public class Storage {
                     if (e.getNodeName().equals("edition")) {
                         curr.setEdition(arvot.item(j).getNodeValue());
                     }
-                    if (e.getNodeName().equals("editors")) {
+                    if (e.getNodeName().equals("editor")) {
                         curr.setEditor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("eprint")) {
