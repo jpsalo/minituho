@@ -1,7 +1,11 @@
 <?xml version="1.0"?>
 <reference>
-<key>gfhdfh</key>
-<entryType>book</entryType>
-<title>gfsgsd</title>
-<publisher>gfsdgs</publisher>
+<key>kokeilu</key>
+<entryType>booklet</entryType>
+<title>tarutaru</title>
+</reference>
+<reference>
+<key>hihii</key>
+<entryType>booklet</entryType>
+<title>hopona</title>
 </reference>

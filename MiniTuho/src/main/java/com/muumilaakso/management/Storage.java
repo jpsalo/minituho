@@ -107,7 +107,7 @@ public class Storage {
      * Imports the database from a XML-file.
      */
     public void importXML() {
-        
+
         builderFactory = DocumentBuilderFactory.newInstance();
         builderFactory.setValidating(true);
         builderFactory.setNamespaceAware(true);
@@ -127,14 +127,17 @@ public class Storage {
         }
         System.out.println("====");
         NodeList lista = document.getElementsByTagName("*");
+        Reference curr = new Reference();
         for (int i = 0; i < lista.getLength(); i++) {
             Element e = (Element) lista.item(i);
-//            System.out.println(e.getNodeName());
+            System.out.println(e.getNodeName());
             NodeList arvot = e.getChildNodes();
             for (int j = 0; j < arvot.getLength(); j++) {
-                Reference curr = new Reference();
+                if (e.getNodeName().contentEquals("reference")) {
+                    curr = new Reference();
+                }
                 if (arvot.item(j).getNodeValue() != null && !arvot.item(j).getNodeValue().contentEquals("\n")) {
-                    System.out.println(arvot.item(j).getNodeValue());
+                    System.out.println("-" + arvot.item(j).getNodeValue());
                     if (e.getNodeName().equals("address")) {
                         curr.setAddress(arvot.item(j).getNodeValue());
                     }
@@ -213,12 +216,14 @@ public class Storage {
                     if (e.getNodeName().equals("year")) {
                         curr.setYear(arvot.item(j).getNodeValue());
                     }
-                    if (e.getNodeName().equals("entrytype")) {
+                    if (e.getNodeName().equals("entryType")) {
                         curr.setEntrytype(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("tag")) {
                         curr.setTag(arvot.item(j).getNodeValue());
                     }
+                }
+                if (curr.getEntrytype() != null && j == arvot.getLength() - 1 && curr.getKey() != null) {
                     this.addRef(curr);
                 }
             }
