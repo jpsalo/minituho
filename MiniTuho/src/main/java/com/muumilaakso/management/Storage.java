@@ -34,6 +34,12 @@ public class Storage {
     File store = new File("store.xml");
     FileWriter output;
 
+    /**
+     * Kostruktori
+     * 
+     * @throws IOException 
+     */
+    
     public Storage() throws IOException {
         refs = new ArrayList<Reference>();
     }
@@ -74,7 +80,7 @@ public class Storage {
     }
 
     /**
-     * Exports the arraylist to XML-file for easy importing action.
+     * Vie arraylistin XML-tiedostoon, jotta viitteet säilyvät.
      */
     public void exportXML() throws IOException {
         output = new FileWriter(store);
@@ -108,7 +114,7 @@ public class Storage {
     }
 
     /**
-     * Imports the database from a XML-file.
+     * Tuo viitteet XML-tiedostosta takaisin ohjelmaan.
      */
     public void importXML() {
 

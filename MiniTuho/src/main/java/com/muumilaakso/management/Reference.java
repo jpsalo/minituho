@@ -159,6 +159,10 @@ public class Reference {
         return year;
     }
 
+    /**
+     * 
+     * @return viitteen attribuutin tyypit ja attribuutit
+     */
     public HashMap<String, String> getAttr() {
         return attr;
     }
