@@ -178,46 +178,53 @@ public class Reference {
         }
     }
 
-    public void setAuthor(HashMap<Integer, ArrayList<String>> authors) {
-        if (authors != null && !authors.isEmpty()) {
-
-            String nimet = "";
-            Set set = authors.entrySet();
-
-            if (!set.isEmpty()) {
-
-                Iterator iter = set.iterator();
-                Map.Entry me;
-                ArrayList<String> temp;
-
-                if (authors.size() == 1) {
-                    me = (Map.Entry) iter.next();
-                    temp = (ArrayList) me.getValue();
-                    if (temp.size() > 2) {
-                        nimet += nimet + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-                    } else {
-                        nimet += nimet + temp.get(1) + ", " + temp.get(0);
-                    }
-                    this.author = nimet;
-                } else if (authors.size() > 1) {
-                    while (iter.hasNext()) {
-                        me = (Map.Entry) iter.next();
-                        temp = (ArrayList) me.getValue();
-                        if (temp.size() > 2) {
-                            nimet += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-                        } else {
-                            nimet += temp.get(1) + ", " + temp.get(0);
-                        }
-                        if (iter.hasNext()) {
-                            nimet += " and ";
-                        }
-                    }
-                    this.author = nimet;
-                }
-                attr.put("author", this.author);
-            }
+    public void setAuthor(String author) {
+        if (author != null && !author.isEmpty()) {
+            this.author = author;
+            attr.put("authors", this.author);
         }
     }
+    
+//    public void setAuthor(HashMap<Integer, ArrayList<String>> authors) {
+//        if (authors != null && !authors.isEmpty()) {
+//
+//            String nimet = "";
+//            Set set = authors.entrySet();
+//
+//            if (!set.isEmpty()) {
+//
+//                Iterator iter = set.iterator();
+//                Map.Entry me;
+//                ArrayList<String> temp;
+//
+//                if (authors.size() == 1) {
+//                    me = (Map.Entry) iter.next();
+//                    temp = (ArrayList) me.getValue();
+//                    if (temp.size() > 2) {
+//                        nimet += nimet + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+//                    } else {
+//                        nimet += nimet + temp.get(1) + ", " + temp.get(0);
+//                    }
+//                    this.author = nimet;
+//                } else if (authors.size() > 1) {
+//                    while (iter.hasNext()) {
+//                        me = (Map.Entry) iter.next();
+//                        temp = (ArrayList) me.getValue();
+//                        if (temp.size() > 2) {
+//                            nimet += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+//                        } else {
+//                            nimet += temp.get(1) + ", " + temp.get(0);
+//                        }
+//                        if (iter.hasNext()) {
+//                            nimet += " and ";
+//                        }
+//                    }
+//                    this.author = nimet;
+//                }
+//                attr.put("author", this.author);
+//            }
+//        }
+//    }
 
     public void setBooktitle(String booktitle) {
         if (booktitle != null && !booktitle.isEmpty()) {
@@ -247,46 +254,53 @@ public class Reference {
         }
     }
 
-    public void setEditor(HashMap<Integer, ArrayList<String>> editors) {
-        if (editors != null && editors.isEmpty()) {
-
-            String editorit = "";
-            Set set = editors.entrySet();
-
-            if (!set.isEmpty()) {
-
-                Iterator iter = set.iterator();
-                Map.Entry me;
-                ArrayList<String> temp;
-
-                if (editors.size() == 1) {
-                    me = (Map.Entry) iter.next();
-                    temp = (ArrayList) me.getValue();
-                    if (temp.size() > 2) {
-                        editorit += editorit + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-                    } else {
-                        editorit += editorit + temp.get(1) + ", " + temp.get(0);
-                    }
-                    this.editor = editorit;
-                } else if (editors.size() > 1) {
-                    while (iter.hasNext()) {
-                        me = (Map.Entry) iter.next();
-                        temp = (ArrayList) me.getValue();
-                        if (temp.size() > 2) {
-                            editorit += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
-                        } else {
-                            editorit += temp.get(1) + ", " + temp.get(0);
-                        }
-                        if (iter.hasNext()) {
-                            editorit += "and ";
-                        }
-                    }
-                    this.editor = editorit;
-                }
-                attr.put("editor", this.editor);
-            }
+    public void setEditor(String editor) {
+        if (editor != null && !editor.isEmpty()) {
+            this.editor = editor;
+            attr.put("editors", this.editor);
         }
     }
+    
+//    public void setEditor(HashMap<Integer, ArrayList<String>> editors) {
+//        if (editors != null && editors.isEmpty()) {
+//
+//            String editorit = "";
+//            Set set = editors.entrySet();
+//
+//            if (!set.isEmpty()) {
+//
+//                Iterator iter = set.iterator();
+//                Map.Entry me;
+//                ArrayList<String> temp;
+//
+//                if (editors.size() == 1) {
+//                    me = (Map.Entry) iter.next();
+//                    temp = (ArrayList) me.getValue();
+//                    if (temp.size() > 2) {
+//                        editorit += editorit + temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+//                    } else {
+//                        editorit += editorit + temp.get(1) + ", " + temp.get(0);
+//                    }
+//                    this.editor = editorit;
+//                } else if (editors.size() > 1) {
+//                    while (iter.hasNext()) {
+//                        me = (Map.Entry) iter.next();
+//                        temp = (ArrayList) me.getValue();
+//                        if (temp.size() > 2) {
+//                            editorit += temp.get(1) + ", " + temp.get(2) + ", " + temp.get(0);
+//                        } else {
+//                            editorit += temp.get(1) + ", " + temp.get(0);
+//                        }
+//                        if (iter.hasNext()) {
+//                            editorit += "and ";
+//                        }
+//                    }
+//                    this.editor = editorit;
+//                }
+//                attr.put("editor", this.editor);
+//            }
+//        }
+//    }
 
     public void setEntrytype(String entrytype) {
         this.entrytype = entrytype;

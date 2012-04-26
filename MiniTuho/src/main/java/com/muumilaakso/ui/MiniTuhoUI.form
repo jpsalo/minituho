@@ -33,7 +33,7 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <Component id="refTab" min="-2" pref="370" max="-2" attributes="0"/>
+              <Component id="refTab" min="-2" pref="389" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -41,7 +41,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Component id="refTab" max="32767" attributes="0"/>
+              <Component id="refTab" pref="462" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="closeBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -77,12 +77,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane4" alignment="0" pref="358" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane4" min="-2" pref="373" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane4" alignment="0" pref="366" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" pref="419" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -96,10 +99,13 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="authorsTxt" max="32767" attributes="0"/>
+                                  <Component id="editorLbluusi" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="urlLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="refLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="yearLbl" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -112,24 +118,23 @@
                                           <Component id="numberLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="noteLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="howpublishedLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="institutionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="crossrefLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="chapterLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="authorLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="monthLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="schoolLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="seriesLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="addressLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="organizationLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="booktitleLbl" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editorLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="annoteLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="entryLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="eprintLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="volumeLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="tagLbl" min="-2" max="-2" attributes="0"/>
                                           <Component id="addBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="authorLbluusi" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="booktitleLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="crossrefLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="editionLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="chapterLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -139,54 +144,38 @@
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="addTagBtn" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="crossrefTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="editionTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="organizationTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="pagesTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="chapterTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="titleTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="booktitleTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="keyTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="monthTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="schoolTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="noteTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="volumeTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="publisherTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="seriesTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="urlTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="typeTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="institutionTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="journalTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="howpublishedTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="numberTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="eprintTxt" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="editorTxt1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="editorTxt2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="editorTxt3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="addEditBtn" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="yearTxt" linkSize="5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="crossrefTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="editionTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="organizationTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="pagesTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="chapterTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="titleTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="booktitleTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="keyTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="monthTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="schoolTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="noteTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="volumeTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="publisherTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="seriesTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="urlTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="typeTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="institutionTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="journalTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="howpublishedTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="numberTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="eprintTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="yearTxt" linkSize="5" alignment="0" pref="200" max="32767" attributes="0"/>
                                           <Component id="addressTxt" linkSize="5" alignment="0" max="32767" attributes="0"/>
                                           <Component id="entryCBx" linkSize="5" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="authorTxt1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="authorTxt2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="authorTxt3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="addAuthBtn" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="annoteTxt" linkSize="5" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                          <Component id="annoteTxt" linkSize="5" alignment="0" pref="200" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="refLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editorLbl1uusi" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="authorLbl1uusi" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editorsTxt" alignment="1" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="30" max="32767" attributes="0"/>
+                              <EmptySpace pref="486" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -208,48 +197,44 @@
                                   <Component id="annoteTxt" alignment="3" max="32767" attributes="0"/>
                                   <Component id="annoteLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="authorTxt1" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="authorLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="authorTxt3" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="authorTxt2" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="addAuthBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="authorLbluusi" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="authorLbl1uusi" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="authorsTxt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="booktitleTxt" alignment="3" max="32767" attributes="0"/>
                                   <Component id="booktitleLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="chapterTxt" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="chapterTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="chapterLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="crossrefTxt" alignment="3" max="32767" attributes="0"/>
                                   <Component id="crossrefLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="editionTxt" alignment="3" max="32767" attributes="0"/>
                                   <Component id="editionLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="editorLbluusi" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="editorLbl1uusi" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="editorsTxt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="editorTxt1" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="editorLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editorTxt2" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="editorTxt3" alignment="3" max="32767" attributes="0"/>
-                                  <Component id="addEditBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="eprintTxt" alignment="3" max="32767" attributes="0"/>
+                                  <Component id="eprintTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="eprintLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="howpublishedTxt" alignment="3" max="32767" attributes="0"/>
                                   <Component id="howpublishedLbl" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -434,44 +419,12 @@
                         <Property name="text" type="java.lang.String" value="institution"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="editorTxt2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="last"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editorTxt2ActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="authorTxt3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="prefix"/>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[51, 28]"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="authorTxt2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="last"/>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[35, 28]"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="authorTxt2ActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="organizationTxt">
                     </Component>
                     <Component class="javax.swing.JTextField" name="editionTxt">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editionTxtActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="editorTxt3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="prefix"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="publisherLbl">
                       <Properties>
@@ -511,25 +464,6 @@
                         <Property name="text" type="java.lang.String" value="annote"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="editorTxt1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="first"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editorTxt1ActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="authorTxt1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="first"/>
-                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                          <Dimension value="[38, 28]"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="authorTxt1ActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="booktitleLbl">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="booktitle"/>
@@ -539,11 +473,6 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="booktitleTxtActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="editorLbl">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="editor"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="organizationLbl">
                       <Properties>
@@ -604,11 +533,6 @@
                         <Property name="text" type="java.lang.String" value="month"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="authorLbl">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="author"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JTextField" name="monthTxt">
                     </Component>
                     <Component class="javax.swing.JLabel" name="addressLbl">
@@ -659,22 +583,6 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addBtnActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="addAuthBtn">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Uusi"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addAuthBtnActionPerformed"/>
-                      </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="addEditBtn">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Uusi"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addEditBtnActionPerformed"/>
-                      </Events>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="urlLbl">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="url"/>
@@ -705,6 +613,38 @@
                         <Property name="text" type="java.lang.String" value="Viite"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JTextField" name="authorsTxt">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="authorsTxtActionPerformed"/>
+                        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="authorsTxtInputMethodTextChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="editorsTxt">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editorsTxtActionPerformed"/>
+                        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="editorsTxtInputMethodTextChanged"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="authorLbl1uusi">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Lastname1, prefix1, Firstname1; Lastname2, ..."/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="editorLbluusi">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Editors in a form:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="authorLbluusi">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Authors in a form:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="editorLbl1uusi">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Lastname1, prefix1, Firstname1; Lastname2, ..."/>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
               </SubComponents>
@@ -726,7 +666,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="346" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="365" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -765,7 +705,7 @@
                           <Component id="emptyBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="248" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="301" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="remRefBtn" alignment="3" min="-2" max="-2" attributes="0"/>

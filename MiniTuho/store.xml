@@ -2,10 +2,14 @@
 <reference>
 <key>kokeilu</key>
 <entryType>booklet</entryType>
-<title>tarutaru</title>
+<authors>Airola, Taru; Myöhänen Matti</authors>
+<title>taru</title>
+<publisher>dsfs</publisher>
 </reference>
 <reference>
-<key>hihii</key>
-<entryType>booklet</entryType>
-<title>hopona</title>
+<key>hfddf</key>
+<entryType>article</entryType>
+<journal>hfdh</journal>
+<authors>gfdsgdfhf</authors>
+<title>hfd</title>
 </reference>
