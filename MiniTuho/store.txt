@@ -1,5 +1,0 @@
-<reference><key>avain</key>
-<entryType>article</entryType>
-<journal>testing</journal>
-<title>typedef</title>
-</reference>

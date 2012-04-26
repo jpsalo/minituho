@@ -34,6 +34,12 @@ public class Storage {
     File store = new File("store.xml");
     FileWriter output;
 
+    /**
+     * Kostruktori
+     * 
+     * @throws IOException 
+     */
+    
     public Storage() throws IOException {
         refs = new ArrayList<Reference>();
     }
@@ -47,7 +53,7 @@ public class Storage {
         if (!refs.contains(ref)) {
             refs.add(ref);
         } else {
-            System.out.println("Viite on jo olemassa");
+//            System.out.println("Viite on jo olemassa");
         }
     }
 
@@ -74,12 +80,14 @@ public class Storage {
     }
 
     /**
-     * Exports the arraylist to XML-file for easy importing action.
+     * Vie arraylistin XML-tiedostoon, jotta viitteet säilyvät.
      */
     public void exportXML() throws IOException {
         output = new FileWriter(store);
         String alku = "<?xml version=" + "\"1.0\"?>\n";
+        String alkuTagi = "<muumikanta>\n";
         output.append(alku);
+        output.append(alkuTagi);
         for (Reference reference : refs) {
             output.append("<reference>\n");
             output.append("<key>" + reference.getKey() + "</key>\n");
@@ -99,12 +107,14 @@ public class Storage {
 
             output.append("</reference>\n");
         }
+        String loppuTagi = "</muumikanta>\n";
+        output.append(loppuTagi);
         output.close();
 //        importXML();
     }
 
     /**
-     * Imports the database from a XML-file.
+     * Tuo viitteet XML-tiedostosta takaisin ohjelmaan.
      */
     public void importXML() {
 
@@ -119,6 +129,7 @@ public class Storage {
         }
         try {
             input = new File("store.xml");
+            
             document = builder.parse(input);
         } catch (SAXException ex) {
             Logger.getLogger(Storage.class.getName()).log(Level.SEVERE, null, ex);
@@ -144,8 +155,8 @@ public class Storage {
                     if (e.getNodeName().equals("annote")) {
                         curr.setAnnote(arvot.item(j).getNodeValue());
                     }
-                    if (e.getNodeName().equals("author")) {
-                        //curr.setAuthor(arvot.item(j).getNodeValue());
+                    if (e.getNodeName().equals("authors")) {
+                        curr.setAuthor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("booktitle")) {
                         curr.setBooktitle(arvot.item(j).getNodeValue());
@@ -159,8 +170,8 @@ public class Storage {
                     if (e.getNodeName().equals("edition")) {
                         curr.setEdition(arvot.item(j).getNodeValue());
                     }
-                    if (e.getNodeName().equals("editor")) {
-                        // curr.setEditor(arvot.item(j).getNodeValue());
+                    if (e.getNodeName().equals("editors")) {
+                        curr.setEditor(arvot.item(j).getNodeValue());
                     }
                     if (e.getNodeName().equals("eprint")) {
                         curr.setEprint(arvot.item(j).getNodeValue());
@@ -223,11 +234,12 @@ public class Storage {
                         curr.setTag(arvot.item(j).getNodeValue());
                     }
                 }
-                if (curr.getEntrytype() != null && j == arvot.getLength() - 1 && curr.getKey() != null) {
+            }
+                if (curr.getEntrytype() != null && curr.getKey() != null) {
                     this.addRef(curr);
                 }
-            }
         }
+        
         System.out.println("====");
     }
 }

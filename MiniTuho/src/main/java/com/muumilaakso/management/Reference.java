@@ -161,6 +161,10 @@ public class Reference {
         return year;
     }
 
+    /**
+     *
+     * @return viitteen attribuutin tyypit ja attribuutit
+     */
     public HashMap<String, String> getAttr() {
         return attr;
     }
@@ -181,28 +185,32 @@ public class Reference {
     }
 
     public void setAuthor(String authors) {
-        String kirj = "";
-        String[] tokens = authors.split("; ");
 
-        for (int i = 0; i < tokens.length; i++) {
-            String t = tokens[i];
-            String[] nimet = t.split(",");
-            for (int j = 0; j < nimet.length; j++) {
-                String n = nimet[j];
-                kirj += n;
-                if (j != nimet.length-1) {
-                    kirj += ",";
+        if (authors != null && !authors.isEmpty()) {
+            String kirj = "";
+            String[] tokens = authors.split("; ");
+
+            for (int i = 0; i < tokens.length; i++) {
+                String t = tokens[i];
+                String[] nimet = t.split(",");
+                for (int j = 0; j < nimet.length; j++) {
+                    String n = nimet[j];
+                    kirj += n;
+                    if (j != nimet.length - 1) {
+                        kirj += ",";
+                    }
                 }
-            }
-            if (i < tokens.length-1) {
+                if (i < tokens.length - 1) {
                     kirj += " and ";
+                }
+
             }
+            this.author = kirj;
+            attr.put("author", this.author);
         }
-        this.author = kirj;
-        attr.put("author", this.author);
     }
 
-public void setBooktitle(String booktitle) {
+    public void setBooktitle(String booktitle) {
         if (booktitle != null && !booktitle.isEmpty()) {
             this.booktitle = booktitle;
             attr.put("booktitle", this.booktitle);
@@ -231,25 +239,27 @@ public void setBooktitle(String booktitle) {
     }
 
     public void setEditor(String editors) {
-        String edit = "";
-        String[] tokens = editors.split("; ");
+        if (editors != null && !editors.isEmpty()) {
+            String edit = "";
+            String[] tokens = editors.split("; ");
 
-        for (int i = 0; i < tokens.length; i++) {
-            String t = tokens[i];
-            String[] nimet = t.split(",");
-            for (int j = 0; j < nimet.length; j++) {
-                String n = nimet[j];
-                edit += n;
-                if (j != nimet.length-1) {
-                    edit += ",";
+            for (int i = 0; i < tokens.length; i++) {
+                String t = tokens[i];
+                String[] nimet = t.split(",");
+                for (int j = 0; j < nimet.length; j++) {
+                    String n = nimet[j];
+                    edit += n;
+                    if (j != nimet.length - 1) {
+                        edit += ",";
+                    }
+                }
+                if (i < tokens.length - 1) {
+                    edit += " and ";
                 }
             }
-            if (i < tokens.length-1) {
-                    edit += " and ";
-            }
+            this.editor = edit;
+            attr.put("editor", this.editor);
         }
-        this.editor = edit;
-        attr.put("editor", this.editor);
     }
 
     public void setEntrytype(String entrytype) {

@@ -1,11 +1,27 @@
 <?xml version="1.0"?>
+<muumikanta>
 <reference>
 <key>kokeilu</key>
 <entryType>booklet</entryType>
-<title>tarutaru</title>
+<authors>Airola, Taru; Myöhänen Matti</authors>
+<title>taru</title>
+<publisher>dsfs</publisher>
 </reference>
 <reference>
-<key>hihii</key>
-<entryType>booklet</entryType>
-<title>hopona</title>
+<key>hfddf</key>
+<entryType>article</entryType>
+<journal>hfdh</journal>
+<authors>gfdsgdfhf</authors>
+<title>onhopo</title>
 </reference>
+<reference>
+<key>seppo</key>
+<entryType>booklet</entryType>
+<title>japieni</title>
+</reference>
+<reference>
+<key>popopo</key>
+<entryType>booklet</entryType>
+<title>topionholmo</title>
+</reference>
+</muumikanta>
