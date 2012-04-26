@@ -1000,7 +1000,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
 
             populateList(storage.getRefs());
 
-            refLbl.setText("");
+            refLbl.setText("asd");
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
