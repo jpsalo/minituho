@@ -51,7 +51,7 @@ public class MiniTuhoUI extends javax.swing.JFrame {
         initComponents();
         storeComponents();
         hideComponents();
-//        storage.importXML();
+        storage.importXML();
     }
 
     private void storeComponents() {
