@@ -47,7 +47,7 @@ public class Storage {
         if (!refs.contains(ref)) {
             refs.add(ref);
         } else {
-            System.out.println("Viite on jo olemassa");
+//            System.out.println("Viite on jo olemassa");
         }
     }
 

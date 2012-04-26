@@ -8,16 +8,20 @@
 <publisher>dsfs</publisher>
 </reference>
 <reference>
-<<<<<<< .merge_file_dJIeZm
-<key>kokeillaan</key>
-<entryType>booklet</entryType>
-<title>toista</title>
-=======
 <key>hfddf</key>
 <entryType>article</entryType>
 <journal>hfdh</journal>
 <authors>gfdsgdfhf</authors>
-<title>hfd</title>
->>>>>>> .merge_file_9napIg
+<title>onhopo</title>
+</reference>
+<reference>
+<key>seppo</key>
+<entryType>booklet</entryType>
+<title>japieni</title>
+</reference>
+<reference>
+<key>popopo</key>
+<entryType>booklet</entryType>
+<title>topionholmo</title>
 </reference>
 </muumikanta>
