@@ -3,7 +3,6 @@
 <reference>
 <key>kokeilu</key>
 <entryType>booklet</entryType>
-<authors>Airola, Taru; Myöhänen Matti</authors>
 <title>taru</title>
 <publisher>dsfs</publisher>
 </reference>
@@ -11,7 +10,6 @@
 <key>hfddf</key>
 <entryType>article</entryType>
 <journal>hfdh</journal>
-<authors>gfdsgdfhf</authors>
 <title>onhopo</title>
 </reference>
 <reference>
@@ -23,5 +21,11 @@
 <key>popopo</key>
 <entryType>booklet</entryType>
 <title>topionholmo</title>
+</reference>
+<reference>
+<key>asd</key>
+<entryType>article</entryType>
+<journal>sd</journal>
+<title>asd</title>
 </reference>
 </muumikanta>
